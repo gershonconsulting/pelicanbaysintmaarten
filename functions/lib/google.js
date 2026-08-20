@@ -22,20 +22,40 @@ function icsDate(v) {
   return m ? `${m[1]}-${m[2]}-${m[3]}` : null;
 }
 
-// Returns [{start:'YYYY-MM-DD', end:'YYYY-MM-DD' (exclusive)}]
+// Which calendar events count as house reservations (owner tags them in the event).
+export const RESERVATION_TAGS = ['entirehouse', '1room', '2rooms', 'airbnb', 'hx', 'friends', 'family'];
+export function isReservation(tags) {
+  return (tags || []).some((t) => RESERVATION_TAGS.includes(String(t).replace(/^#/, '').toLowerCase()));
+}
+
+// Busy ranges for availability = only tagged reservations. [{start, end (exclusive)}]
 export async function fetchCalendarBusy(env) {
+  const events = await fetchCalendarEvents(env);
+  return events.filter((e) => isReservation(e.tags)).map((e) => ({ start: e.start, end: e.end }));
+}
+
+function unfoldICS(text) { return String(text).replace(/\r?\n[ \t]/g, ''); }
+function icsUnescape(s) { return String(s).replace(/\\n/gi, ' ').replace(/\\,/g, ',').replace(/\\;/g, ';').replace(/\\\\/g, '\\').trim(); }
+function extractTags(text) { return String(text).match(/#[A-Za-z0-9_]+/g) || []; }
+
+// Returns [{start, end, summary, tags}] with details (needs full-details ICS sharing or OAuth).
+export async function fetchCalendarEvents(env) {
   const out = [];
   if (env.CALENDAR_ICS_URL) {
     const r = await fetch(env.CALENDAR_ICS_URL, { cf: { cacheTtl: 900, cacheEverything: true } });
     if (r.ok) {
-      const text = await r.text();
+      const text = unfoldICS(await r.text());
       for (const ev of text.split('BEGIN:VEVENT').slice(1)) {
         const s = ev.match(/DTSTART[^:\r\n]*:([0-9TZ]+)/);
         const e = ev.match(/DTEND[^:\r\n]*:([0-9TZ]+)/);
+        const sm = ev.match(/(?:^|\r?\n)SUMMARY[^:\r\n]*:([^\r\n]*)/);
+        const ds = ev.match(/(?:^|\r?\n)DESCRIPTION[^:\r\n]*:([^\r\n]*)/);
         if (s) {
           const start = icsDate(s[1]);
           const end = e ? icsDate(e[1]) : start;
-          if (start) out.push({ start, end: end || start });
+          const summary = sm ? icsUnescape(sm[1]) : '';
+          const description = ds ? icsUnescape(ds[1]) : '';
+          if (start) out.push({ start, end: end || start, summary, tags: extractTags(summary + ' ' + description) });
         }
       }
     }
@@ -52,7 +72,8 @@ export async function fetchCalendarBusy(env) {
       for (const it of j.items || []) {
         const start = (it.start && (it.start.date || (it.start.dateTime || '').slice(0, 10))) || null;
         const end = (it.end && (it.end.date || (it.end.dateTime || '').slice(0, 10))) || start;
-        if (start) out.push({ start, end: end || start });
+        const summary = it.summary || '';
+        if (start) out.push({ start, end: end || start, summary, tags: extractTags(summary + ' ' + (it.description || '')) });
       }
     }
   }
