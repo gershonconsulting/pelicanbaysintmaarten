@@ -92,6 +92,20 @@ function html(body, status) {
 export async function onRequest(context) {
   const { request, env, next } = context;
 
+  // /guide/?logout=1 — drop the cookie and show the gate again. Useful for
+  // checking the gate really is up after you have already signed in once.
+  if (new URL(request.url).searchParams.has('logout')) {
+    return new Response(gatePage('Signed out. Enter the code to open the guide.'), {
+      status: 401,
+      headers: {
+        'content-type': 'text/html; charset=utf-8',
+        'cache-control': 'no-store',
+        'x-robots-tag': 'noindex, nofollow',
+        'Set-Cookie': `${COOKIE}=; Path=/guide; HttpOnly; Secure; SameSite=Lax; Max-Age=0`,
+      },
+    });
+  }
+
   if (request.method === 'POST') {
     let given = '';
     try {
