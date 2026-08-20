@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Friends of Pelican Bay — Reserve your stay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquoise:#4FB3BF; --turquoise-deep:#1E7A85; --sand:#F5EEE2; --cream:#FAF6EF;
+    --terracotta:#C84B3B; --burgundy:#8A2540; --navy:#0F2E3D; --charcoal:#1a1a1a;
+    --muted:#6b6b6b; --gold:#C9A656; --line:#e4ddce;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Outfit',sans-serif;font-weight:300;color:var(--charcoal);background:var(--cream);line-height:1.6}
+  a{color:var(--turquoise-deep);text-decoration:none}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;margin:0}
+  header{background:var(--navy);color:#fff;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  header .brand{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:.5px}
+  header .brand small{display:block;font-family:'Outfit';font-weight:300;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--turquoise)}
+  header nav a{color:#fff;font-size:13px;margin-left:18px;opacity:.85}
+  header nav a:hover{opacity:1}
+  .wrap{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
+  .center{max-width:420px;margin:40px auto}
+  label{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px;font-weight:400}
+  input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:15px;background:var(--cream)}
+  input:focus,select:focus{outline:none;border-color:var(--turquoise)}
+  button{font-family:inherit;font-size:15px;cursor:pointer;border-radius:8px;border:1px solid var(--turquoise-deep);background:var(--turquoise-deep);color:#fff;padding:11px 18px;transition:.2s}
+  button:hover{background:var(--navy);border-color:var(--navy)}
+  button.ghost{background:transparent;color:var(--turquoise-deep)}
+  button.ghost:hover{background:var(--sand);color:var(--navy)}
+  .tabs{display:flex;gap:6px;margin-bottom:18px}
+  .tabs button{flex:1;background:var(--sand);color:var(--navy);border:1px solid var(--line)}
+  .tabs button.on{background:var(--turquoise-deep);color:#fff;border-color:var(--turquoise-deep)}
+  .err{color:var(--terracotta);font-size:13px;min-height:18px;margin-top:8px}
+  .note{font-size:13px;color:var(--muted)}
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .sw{width:13px;height:13px;border-radius:4px;display:inline-block}
+  .cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:6px}
+  .month{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .month h3{font-size:16px;margin-bottom:8px;color:var(--navy)}
+  .dow{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:10px;color:var(--muted);text-align:center;margin-bottom:3px}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+  .day{font-size:12px;text-align:center;padding:7px 0;border-radius:7px;cursor:pointer;user-select:none}
+  .day:hover:not(.off):not(.bk){background:var(--sand)}
+  .day.bk{background:#f3d9d4;color:var(--terracotta);cursor:not-allowed;text-decoration:line-through}
+  .day.past{color:#c9c2b3;cursor:not-allowed}
+  .day.sel{background:var(--turquoise-deep);color:#fff}
+  .day.rng{background:var(--turquoise);color:#fff}
+  .bar{position:sticky;bottom:0;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 -4px 18px rgba(15,46,61,.06)}
+  .rooms{display:flex;gap:6px}
+  .rooms button{background:var(--sand);color:var(--navy);border:1px solid var(--line);padding:8px 14px}
+  .rooms button.on{background:var(--turquoise-deep);color:#fff;border-color:var(--turquoise-deep)}
+  .ok{background:#e2f1e6;border:1px solid #bcd9c4;color:#2f6b3f;border-radius:10px;padding:12px 16px;margin-top:12px;font-size:14px}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+  th{font-weight:500;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+  .pill{font-size:12px;padding:3px 10px;border-radius:20px}
+  .pill.pending{background:#fdf1d6;color:#8a6d1a}
+  .pill.approved{background:#e2f1e6;color:#2f6b3f}
+  .pill.denied{background:#f3d9d4;color:var(--terracotta)}
+  .hidden{display:none}
+  .spin{color:var(--muted);font-size:14px;padding:20px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Pelican Bay<small>Friends &amp; Family</small></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="#" id="logout" class="hidden">Sign out</a>
+  </nav>
+</header>
+<div class="wrap">
+
+  <!-- AUTH -->
+  <div id="auth" class="center hidden">
+    <div class="card">
+      <div class="tabs">
+        <button id="tab-in" class="on">Sign in</button>
+        <button id="tab-reg">Register</button>
+      </div>
+
+      <div id="pane-in">
+        <h2 style="font-size:22px;color:var(--navy)">Welcome back</h2>
+        <p class="note">Sign in to request your dates at Pelican Bay.</p>
+        <label>Email</label><input id="in-email" type="email" placeholder="name@email.com" autocomplete="email">
+        <label>Password</label><input id="in-pw" type="password" placeholder="Your password" autocomplete="current-password">
+        <div class="err" id="in-err"></div>
+        <button id="do-in" style="width:100%">Sign in</button>
+      </div>
+
+      <div id="pane-reg" class="hidden">
+        <h2 style="font-size:22px;color:var(--navy)">Request access</h2>
+        <p class="note">Register and we'll approve you. You'll get an email once you're in.</p>
+        <label>Full name</label><input id="rg-name" type="text" placeholder="Jane Doe" autocomplete="name">
+        <label>Email</label><input id="rg-email" type="email" placeholder="name@email.com" autocomplete="email">
+        <label>Password <span style="color:var(--muted)">(min 8 characters)</span></label><input id="rg-pw" type="password" placeholder="Choose a password" autocomplete="new-password">
+        <div class="err" id="rg-err"></div>
+        <button id="do-reg" style="width:100%">Create account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PENDING -->
+  <div id="pending" class="center hidden">
+    <div class="card" style="text-align:center">
+      <h2 style="font-size:22px;color:var(--navy)">Almost there</h2>
+      <p class="note">Your account <strong id="pending-email"></strong> is awaiting approval. We'll email you as soon as you're approved.</p>
+      <button class="ghost" onclick="location.reload()">Refresh</button>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div id="app" class="hidden">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:14px">
+      <div>
+        <h1 style="font-size:30px;color:var(--navy)">Reserve your stay</h1>
+        <p class="note">Whole apartment · 3 bedrooms · pick your check-in, then your check-out. Requests are confirmed by Olivier.</p>
+      </div>
+      <div class="legend">
+        <span><i class="sw" style="background:#f3d9d4"></i>Unavailable</span>
+        <span><i class="sw" style="background:var(--turquoise-deep)"></i>Check-in / out</span>
+        <span><i class="sw" style="background:var(--turquoise)"></i>Your nights</span>
+      </div>
+    </div>
+
+    <div id="cal" class="cal"><div class="spin">Loading availability…</div></div>
+
+    <div class="bar">
+      <div style="min-width:170px">
+        <div class="note" style="font-size:12px">Selected</div>
+        <div id="sel" style="font-size:16px;color:var(--navy)">—</div>
+      </div>
+      <div>
+        <div class="note" style="font-size:12px;margin-bottom:5px">Bedrooms you'll use</div>
+        <div class="rooms" id="rooms">
+          <button data-n="1">1</button><button data-n="2">2</button><button data-n="3" class="on">3</button>
+        </div>
+      </div>
+      <div style="flex:1"></div>
+      <button id="req">Request booking</button>
+    </div>
+    <div class="err" id="req-err"></div>
+    <div id="done" class="ok hidden"></div>
+
+    <div class="card" style="margin-top:26px">
+      <h2 style="font-size:20px;color:var(--navy);margin-bottom:6px">Your reservations</h2>
+      <div id="mine"><div class="spin">Loading…</div></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const api = (path, opts) => fetch(path, Object.assign({ headers: { 'content-type': 'application/json' }, credentials: 'same-origin' }, opts)).then(async r => ({ ok: r.ok, status: r.status, data: await r.json().catch(() => ({})) }));
+const MN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let blocked = new Set(), pickA = null, pickB = null, rooms = 3;
+
+function show(view) { ['auth','pending','app'].forEach(v => $(v).classList.toggle('hidden', v !== view)); }
+
+async function init() {
+  const { data } = await api('/api/me');
+  if (!data.user) { show('auth'); return; }
+  if (data.user.status !== 'approved') { $('pending-email').textContent = data.user.email; show('pending'); return; }
+  $('logout').classList.remove('hidden');
+  if (data.user.is_admin) { $('logout').insertAdjacentHTML('beforebegin', '<a href="/friends/admin">Admin</a>'); }
+  show('app');
+  await Promise.all([loadAvailability(), loadMine()]);
+}
+
+$('tab-in').onclick = () => { $('tab-in').classList.add('on'); $('tab-reg').classList.remove('on'); $('pane-in').classList.remove('hidden'); $('pane-reg').classList.add('hidden'); };
+$('tab-reg').onclick = () => { $('tab-reg').classList.add('on'); $('tab-in').classList.remove('on'); $('pane-reg').classList.remove('hidden'); $('pane-in').classList.add('hidden'); };
+
+$('do-in').onclick = async () => {
+  $('in-err').textContent = '';
+  const r = await api('/api/login', { method: 'POST', body: JSON.stringify({ email: $('in-email').value, password: $('in-pw').value }) });
+  if (!r.ok) { $('in-err').textContent = r.data.error || 'Could not sign in'; return; }
+  init();
+};
+$('do-reg').onclick = async () => {
+  $('rg-err').textContent = '';
+  const r = await api('/api/register', { method: 'POST', body: JSON.stringify({ name: $('rg-name').value, email: $('rg-email').value, password: $('rg-pw').value }) });
+  if (!r.ok) { $('rg-err').textContent = r.data.error || 'Could not register'; return; }
+  $('rg-err').style.color = 'var(--turquoise-deep)';
+  $('rg-err').textContent = 'Thanks! Your request was sent. You’ll get an email once approved.';
+};
+$('logout').onclick = async (e) => { e.preventDefault(); await api('/api/logout', { method: 'POST' }); location.reload(); };
+
+async function loadAvailability() {
+  const { data } = await api('/api/availability');
+  blocked = new Set(data.blocked || []);
+  renderCal();
+}
+const iso = (y,m,d) => `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+const today = new Date(); today.setHours(0,0,0,0);
+
+function renderCal() {
+  const cal = $('cal'); cal.innerHTML = '';
+  // Start the calendar at July 1 of the current booking season.
+  const y = today.getMonth() >= 6 ? today.getFullYear() : today.getFullYear() - 1, m = 6;
+  for (let k = 0; k < 14; k++) {
+    const mm = ((m + k) % 12), yy = y + Math.floor((m + k) / 12);
+    const box = document.createElement('div'); box.className = 'month';
+    let h = `<h3>${MN[mm]} ${yy}</h3><div class="dow"><div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div></div><div class="grid">`;
+    const first = new Date(yy, mm, 1).getDay(), dim = new Date(yy, mm + 1, 0).getDate();
+    for (let b = 0; b < first; b++) h += '<div></div>';
+    for (let d = 1; d <= dim; d++) {
+      const key = iso(yy, mm, d), dt = new Date(yy, mm, d);
+      let cls = 'day';
+      if (dt < today) cls += ' past';
+      else if (blocked.has(key)) cls += ' bk';
+      h += `<div class="${cls}" data-k="${key}">${d}</div>`;
+    }
+    h += '</div>'; box.innerHTML = h; cal.appendChild(box);
+  }
+  paint();
+}
+
+$('cal').addEventListener('click', (e) => {
+  const el = e.target.closest('.day'); if (!el || el.classList.contains('bk') || el.classList.contains('past') || !el.dataset.k) return;
+  $('done').classList.add('hidden'); $('req-err').textContent = '';
+  const t = el.dataset.k;
+  if (!pickA || (pickA && pickB)) { pickA = t; pickB = null; }
+  else if (t <= pickA) { pickA = t; pickB = null; }
+  else { if (rangeClear(pickA, t)) pickB = t; else { pickA = t; pickB = null; } }
+  paint();
+});
+function rangeClear(a, b) {
+  let d = new Date(a + 'T00:00:00'); const end = new Date(b + 'T00:00:00');
+  while (d < end) { if (blocked.has(d.toISOString().slice(0,10))) return false; d = new Date(d.getTime() + 864e5); }
+  return true;
+}
+function paint() {
+  document.querySelectorAll('.day').forEach(el => { el.classList.remove('sel','rng'); });
+  document.querySelectorAll('.day').forEach(el => {
+    const k = el.dataset.k; if (!k) return;
+    if (pickA && k === pickA) el.classList.add('sel');
+    if (pickB && k === pickB) el.classList.add('sel');
+    if (pickA && pickB && k > pickA && k < pickB) el.classList.add('rng');
+  });
+  const sel = $('sel');
+  if (pickA && pickB) { const n = Math.round((new Date(pickB) - new Date(pickA)) / 864e5); sel.textContent = `${fmt(pickA)} → ${fmt(pickB)} (${n} night${n===1?'':'s'})`; }
+  else if (pickA) sel.textContent = `${fmt(pickA)} → pick check-out`;
+  else sel.textContent = '—';
+}
+const fmt = (k) => { const [y,m,d] = k.split('-'); return `${MN[+m-1].slice(0,3)} ${+d}, ${y}`; };
+
+$('rooms').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  document.querySelectorAll('#rooms button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on'); rooms = +b.dataset.n;
+});
+
+$('req').onclick = async () => {
+  $('req-err').textContent = '';
+  if (!pickA || !pickB) { $('req-err').textContent = 'Pick a check-in and check-out date first.'; return; }
+  const r = await api('/api/bookings', { method: 'POST', body: JSON.stringify({ checkin: pickA, checkout: pickB, rooms }) });
+  if (!r.ok) { $('req-err').textContent = r.data.error || 'Could not send request'; return; }
+  $('done').classList.remove('hidden');
+  $('done').innerHTML = `Request sent for <strong>${fmt(pickA)} → ${fmt(pickB)}</strong> (${rooms} bedroom${rooms===1?'':'s'}). Olivier will confirm by email.`;
+  pickA = pickB = null;
+  await Promise.all([loadAvailability(), loadMine()]);
+};
+
+async function loadMine() {
+  const { data } = await api('/api/bookings');
+  const el = $('mine');
+  if (!data.bookings || !data.bookings.length) { el.innerHTML = '<p class="note">No reservations yet.</p>'; return; }
+  let h = '<table><tr><th>Check-in</th><th>Check-out</th><th>Bedrooms</th><th>Status</th></tr>';
+  for (const b of data.bookings) h += `<tr><td>${fmt(b.checkin)}</td><td>${fmt(b.checkout)}</td><td>${b.rooms}</td><td><span class="pill ${b.status}">${b.status}</span></td></tr>`;
+  el.innerHTML = h + '</table>';
+}
+
+init();
+</script>
+</body>
+</html>
