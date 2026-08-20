@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pelican Bay — Friends admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--turquoise:#4FB3BF;--turquoise-deep:#1E7A85;--sand:#F5EEE2;--cream:#FAF6EF;--terracotta:#C84B3B;--navy:#0F2E3D;--charcoal:#1a1a1a;--muted:#6b6b6b;--line:#e4ddce}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Outfit',sans-serif;font-weight:300;color:var(--charcoal);background:var(--cream)}
+  a{color:var(--turquoise-deep);text-decoration:none}
+  h1,h2{font-family:'Cormorant Garamond',serif;font-weight:500;margin:0}
+  header{background:var(--navy);color:#fff;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
+  header .brand{font-family:'Cormorant Garamond',serif;font-size:24px}
+  header .brand small{display:block;font-family:'Outfit';font-weight:300;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--turquoise)}
+  header nav a{color:#fff;font-size:13px;margin-left:18px;opacity:.85}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:24px}
+  h2{font-size:22px;color:var(--navy);margin-bottom:4px}
+  .note{font-size:13px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{font-weight:500;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+  .pill{font-size:12px;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .pill.pending{background:#fdf1d6;color:#8a6d1a}
+  .pill.approved{background:#e2f1e6;color:#2f6b3f}
+  .pill.denied{background:#f3d9d4;color:var(--terracotta)}
+  button{font-family:inherit;font-size:13px;cursor:pointer;border-radius:7px;padding:7px 13px;border:1px solid var(--turquoise-deep);background:var(--turquoise-deep);color:#fff;margin-right:6px}
+  button.deny{background:#fff;color:var(--terracotta);border-color:#e0b8b0}
+  button:hover{opacity:.9}
+  .gate{max-width:400px;margin:50px auto}
+  input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:15px;background:var(--cream);margin-top:6px}
+  label{font-size:13px;color:var(--muted)}
+  .err{color:var(--terracotta);font-size:13px;min-height:18px;margin-top:8px}
+  .hidden{display:none}
+  .spin{color:var(--muted);font-size:14px;padding:14px 0}
+  .badge{font-size:11px;color:var(--muted)}
+  .tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;background:var(--sand);color:var(--turquoise-deep);border:1px solid var(--line);margin:1px 2px}
+  .warn{color:#8a6d1a;font-size:13px;margin:14px 0 4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Pelican Bay<small>Admin</small></div>
+  <nav><a href="/friends">Booking page</a><a href="#" id="logout" class="hidden">Sign out</a></nav>
+</header>
+<div class="wrap">
+
+  <div id="gate" class="gate hidden">
+    <div class="card">
+      <h2>Admin sign in</h2>
+      <p class="note">Sign in with your admin account.</p>
+      <label>Email</label><input id="em" type="email" placeholder="name@email.com">
+      <label>Password</label><input id="pw" type="password" placeholder="Password">
+      <div class="err" id="err"></div>
+      <button id="signin" style="width:100%;margin-top:10px">Sign in</button>
+    </div>
+  </div>
+
+  <div id="denied" class="gate hidden">
+    <div class="card" style="text-align:center"><h2>Not authorized</h2><p class="note">This account isn't an admin. <a href="/friends">Back to booking</a></p></div>
+  </div>
+
+  <div id="panel" class="hidden">
+    <div class="card">
+      <h2>Reservations</h2>
+      <p class="note">Booked stays pulled from your Google Calendar. Only events you tag (e.g. #EntireHouse, #AirBNB, #HX, #Friends) count as reservations and block availability.</p>
+      <div id="calres"><div class="spin">Loading…</div></div>
+      <div id="untagged"></div>
+    </div>
+    <div class="card">
+      <h2>Booking requests</h2>
+      <p class="note">Approve to confirm the stay and add it to your Google Calendar. Deny to release the dates.</p>
+      <div id="bookings"><div class="spin">Loading…</div></div>
+    </div>
+    <div class="card">
+      <h2>Friend accounts</h2>
+      <p class="note">Approve to let someone sign in and request dates.</p>
+      <div id="users"><div class="spin">Loading…</div></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const api = (p, o) => fetch(p, Object.assign({ headers: { 'content-type': 'application/json' }, credentials: 'same-origin' }, o)).then(async r => ({ ok: r.ok, status: r.status, data: await r.json().catch(() => ({})) }));
+const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmt = (k) => { if(!k) return ''; const [y,m,d] = k.split('-'); return `${MN[+m-1]} ${+d}, ${y}`; };
+
+async function init() {
+  const { data } = await api('/api/me');
+  if (!data.user) { show('gate'); return; }
+  if (!data.user.is_admin) { show('denied'); return; }
+  $('logout').classList.remove('hidden');
+  show('panel');
+  load();
+}
+function show(v){ ['gate','denied','panel'].forEach(x => $(x).classList.toggle('hidden', x !== v)); }
+
+$('signin').onclick = async () => {
+  $('err').textContent = '';
+  const r = await api('/api/login', { method: 'POST', body: JSON.stringify({ email: $('em').value, password: $('pw').value }) });
+  if (!r.ok) { $('err').textContent = r.data.error || 'Could not sign in'; return; }
+  init();
+};
+$('logout').onclick = async (e) => { e.preventDefault(); await api('/api/logout', { method: 'POST' }); location.reload(); };
+
+async function load() {
+  const [bk, us, cal] = await Promise.all([api('/api/admin/bookings'), api('/api/admin/users'), api('/api/admin/calendar')]);
+  renderCalendar(cal.data || {});
+  renderBookings(bk.data.bookings || []);
+  renderUsers(us.data.users || []);
+}
+
+function renderCalendar(data) {
+  const res = data.reservations || [], unt = data.untagged || [];
+  if (!res.length) {
+    $('calres').innerHTML = '<p class="note">No tagged reservations found. Add a tag like #EntireHouse or #AirBNB to a calendar event to see it here.</p>';
+  } else {
+    let h = '<table><tr><th>Dates</th><th>Reservation</th><th>Type</th></tr>';
+    for (const e of res) {
+      const tags = (e.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join(' ');
+      h += `<tr><td>${fmt(e.start)} → ${fmt(e.end)}</td><td>${esc(e.summary || '—')}</td><td>${tags || '<span class="badge">—</span>'}</td></tr>`;
+    }
+    $('calres').innerHTML = h + '</table>';
+  }
+  if (unt.length) {
+    let h = '<p class="warn">⚠ Untagged multi-night events — these do <strong>not</strong> block availability. Add a tag if any is a rental:</p><table>';
+    for (const e of unt) h += `<tr><td>${fmt(e.start)} → ${fmt(e.end)}</td><td>${esc(e.summary || '—')}</td></tr>`;
+    $('untagged').innerHTML = h + '</table>';
+  } else { $('untagged').innerHTML = ''; }
+}
+
+function renderBookings(list) {
+  if (!list.length) { $('bookings').innerHTML = '<p class="note">No requests yet.</p>'; return; }
+  let h = '<table><tr><th>Guest</th><th>Dates</th><th>Bed.</th><th>Status</th><th></th></tr>';
+  for (const b of list) {
+    h += `<tr><td>${esc(b.name)}<div class="badge">${esc(b.email)}</div></td><td>${fmt(b.checkin)} → ${fmt(b.checkout)}</td><td>${b.rooms}</td><td><span class="pill ${b.status}">${b.status}</span></td><td>`;
+    if (b.status === 'pending') h += `<button onclick="actBooking(${b.id},'approve')">Approve</button><button class="deny" onclick="actBooking(${b.id},'deny')">Deny</button>`;
+    h += '</td></tr>';
+  }
+  $('bookings').innerHTML = h + '</table>';
+}
+function renderUsers(list) {
+  if (!list.length) { $('users').innerHTML = '<p class="note">No accounts yet.</p>'; return; }
+  let h = '<table><tr><th>Name</th><th>Email</th><th>Status</th><th></th></tr>';
+  for (const u of list) {
+    h += `<tr><td>${esc(u.name)}${u.is_admin?' <span class="badge">(admin)</span>':''}</td><td>${esc(u.email)}</td><td><span class="pill ${u.status}">${u.status}</span></td><td>`;
+    if (u.status !== 'approved') h += `<button onclick="actUser(${u.id},'approve')">Approve</button>`;
+    if (u.status === 'pending') h += `<button class="deny" onclick="actUser(${u.id},'deny')">Deny</button>`;
+    h += '</td></tr>';
+  }
+  $('users').innerHTML = h + '</table>';
+}
+window.actBooking = async (id, action) => { await api('/api/admin/bookings', { method: 'POST', body: JSON.stringify({ id, action }) }); load(); };
+window.actUser = async (id, action) => { await api('/api/admin/users', { method: 'POST', body: JSON.stringify({ id, action }) }); load(); };
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+
+init();
+</script>
+</body>
+</html>
