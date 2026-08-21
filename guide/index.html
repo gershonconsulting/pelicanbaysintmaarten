@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Pelican Bay Welcome Guide - Version 2.3.0</title>
+<title>Pelican Bay Welcome Guide - Version 2.4.0</title>
 <style>
 :root{
   --navy:#16354a; --aqua:#16899a; --turquoise:#31aebb; --sand:#d9bd83;
@@ -24,6 +24,23 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .header h1{font-size:26pt;line-height:1;margin:1.5mm 0 0}
 .footer{position:absolute;left:16mm;right:16mm;bottom:6.5mm;border-top:1px solid #ddd7cb;padding-top:2.2mm;color:#858585;font-size:6.8pt;text-align:center;line-height:1.25}
 .footer .line1{display:flex;justify-content:space-between;gap:5mm}.footer .line2{margin-top:1mm}
+#page-19 .header{margin-bottom:4mm}
+#page-19 .checklist{gap:1.5mm}
+#page-19 .check{padding:2.2mm 3mm;font-size:8.2pt;line-height:1.25}
+#page-19 .checkout-notes{margin-top:3mm;gap:3mm}
+#page-19 .checkout-note{padding:3mm 3.5mm;font-size:7.6pt;line-height:1.3}
+#page-19 .garbage-section{margin-top:3mm!important}
+#page-19 .garbage-section .card{padding:3mm}
+#page-19 .garbage-section h2{font-size:14pt;margin:0 0 1.5mm}
+#page-19 .garbage-section p{font-size:7.4pt;line-height:1.3;margin:0 0 1.5mm}
+#page-19 .garbage-section figure{margin-top:0!important}
+#page-19 .garbage-section figcaption{font-size:6.8pt}
+#page-19 .garbage-section + .card{margin-top:3mm!important;padding:3mm}
+#page-19 .garbage-section + .card h2{font-size:14pt;margin:0 0 1.5mm}
+#page-19 .garbage-section + .card p{font-size:7.6pt;line-height:1.3;margin:0 0 2mm}
+#page-19 .garbage-section + .card + .callout{margin-top:3mm!important;padding:2.8mm 3.5mm;font-size:7.8pt;line-height:1.3}
+#page-19 .footer{left:16mm;right:16mm;bottom:6.5mm;padding-top:2.2mm;font-size:6.8pt;line-height:1.25;z-index:3;background:var(--paper)}
+
 .cover{padding:0;background:#fff}
 .cover-photo{width:210mm;height:176mm;display:block;object-fit:contain;background:#dceff2}
 .cover-panel{padding:14mm 18mm 18mm}
@@ -34,6 +51,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .cover-details{font-size:10.5pt;line-height:1.7;color:#394a54}
 .cover-note{font-size:8.5pt;color:#75818a;margin-top:5mm}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.jet-ski-card img,.scuba-card img{width:100%;height:39mm;display:block;object-fit:contain;background:#f6f1e8;border-radius:2.5mm;margin-bottom:3mm}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .card{background:#fff;border:1px solid #e3ddd3;border-radius:4mm;padding:4.5mm;break-inside:avoid}
 .card h2{font-size:16pt;margin:0 0 2.5mm}.card h3{font-size:12.5pt;margin:0 0 1.7mm}
@@ -52,7 +70,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.qr-card{display:grid;grid-template-columns:34mm 1fr;gap:4mm;align-items:center;background:#fff;border:1px solid #e1dbd0;border-radius:4mm;padding:4mm}.qr-card img{width:34mm;height:34mm;object-fit:contain}.qr-card h3{margin:0 0 1.5mm;font-size:13pt}.qr-card p{font-size:8.2pt;line-height:1.35;margin:0}
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}.feature{background:#fff;border-top:3px solid var(--sand);padding:4mm;border-radius:2mm}.feature h3{font-size:12pt;margin:0 0 2mm}.feature p{font-size:8.3pt;line-height:1.4;margin:0}
 .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.store{background:#fff;border:1px solid #e3ddd3;border-radius:4mm;padding:4mm}.store h3{font-size:13.5pt;margin:0 0 2mm}.store p{font-size:8.5pt;line-height:1.4;margin:0 0 2mm}
-.restaurant-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.restaurant{display:grid;grid-template-columns:50mm 1fr;background:#fff;border:1px solid #e2dbd0;border-radius:4mm;overflow:hidden;min-height:53mm}.restaurant img{width:50mm;height:100%;min-height:53mm;object-fit:contain!important;background:#fff}.restaurant .body{padding:3.5mm}.restaurant h3{font-size:12pt;margin:0 0 1.5mm}.restaurant p{font-size:7.9pt;line-height:1.35;margin:0 0 1.7mm}.restaurant .address{font-size:7.2pt;color:#6f7a81}
+.restaurant-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.restaurant{display:grid;grid-template-columns:50mm 1fr;background:#fff;border:1px solid #e2dbd0;border-radius:4mm;overflow:hidden;min-height:53mm}.restaurant img{width:50mm;height:100%;min-height:53mm;object-fit:contain!important;background:#fff}.restaurant-art{width:50mm;min-height:53mm;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#e6f4f2,#f7e8c6);color:var(--navy);font-family:Georgia,'Times New Roman',serif;font-size:25pt;letter-spacing:2mm}.restaurant .body{padding:3.5mm}.restaurant h3{font-size:12pt;margin:0 0 1.5mm}.restaurant p{font-size:7.9pt;line-height:1.35;margin:0 0 1.7mm}.restaurant .address{font-size:7.2pt;color:#6f7a81}
 .beach-columns{columns:2;column-gap:6mm}.beach{break-inside:avoid;background:#fff;border-left:3px solid var(--sand);padding:2.5mm 3mm;margin-bottom:2.8mm}.beach h3{font-size:10.5pt;margin:0 0 1mm}.beach p{font-size:7.8pt;line-height:1.32;margin:0}
 .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.activity{background:#fff;border:1px solid #dfd8ce;border-radius:4mm;overflow:hidden}.activity img{width:100%;height:71mm;object-fit:contain!important;background:#fff}.activity .body{padding:4mm}.activity h2{font-size:16pt;margin:0 0 2mm}.activity p{font-size:8.4pt;line-height:1.4;margin:0 0 3mm}.button{display:inline-block;background:var(--navy);color:#fff;border-radius:30px;padding:2.5mm 4mm;font-size:8pt;text-align:center}
 .daytrip-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.daytrip{background:#fff;border:1px solid #dfd8ce;border-radius:4mm;overflow:hidden}.daytrip img{width:100%;height:75mm;object-fit:contain!important;background:#fff}.daytrip .body{padding:4.5mm}.daytrip h2{font-size:19pt;margin:0 0 2.5mm}.daytrip p,.daytrip li{font-size:8.5pt;line-height:1.4}.daytrip ul{padding-left:5mm;margin:2mm 0 4mm}
@@ -62,7 +80,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .farewell{padding:0;background:#f5f0e7}.farewell img{width:210mm;height:190mm;object-fit:contain!important;background:#132b3d}.farewell-copy{text-align:center;padding:16mm 18mm}.farewell-copy h1{font-size:34pt;margin:0 0 4mm}.farewell-copy p{font-size:11pt;color:#5f6d75;margin:0}
 .small{font-size:7.8pt;line-height:1.4}.muted{color:var(--muted)}
 
-/* Version 2.3.0 revisions */
+/* Version 2.4.0 revisions */
 .page2-top{display:grid;grid-template-columns:1.2fr .8fr;gap:4mm;margin-bottom:4mm}
 .page2-top .card{padding:3.5mm}
 .page2-top h2{font-size:13.8pt;margin-bottom:1.5mm}
@@ -90,16 +108,6 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .key-photo-block .keys-large{height:58mm}
 .ac-warning{background:#fff0ef;border:1px solid #e6aaa4;border-left:6px solid #b33b31;border-radius:3mm;padding:4mm 5mm;margin-bottom:5mm;font-size:9.4pt;line-height:1.45}
 .ac-warning strong{color:#982c24}
-.power-note{background:#eef7f6;border:1px solid #a9d3d8;border-left:6px solid var(--aqua);border-radius:3mm;padding:4mm 5mm;margin-bottom:5mm;font-size:9.4pt;line-height:1.45}
-.power-note strong{color:#0d5f6c}
-/* v2.3.0 layout fixes: keep pages 7 and 19 within the page box */
-#page-7 .coffee-section{margin-top:1mm!important}
-#page-7 .coffee-section .photo-frame figcaption{font-size:7.2pt}
-#page-7 .coffee-section .photo-frame img{max-height:36mm}
-#page-19 .garbage-section{margin-top:3mm!important}
-#page-19 .garbage-section .photo-frame img{max-height:58mm}
-#page-19 .card[style]{margin-top:3mm!important}
-#page-19 .callout{margin-top:3mm!important}
 .amenity-photo-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;margin-bottom:5mm}
 .amenity-photo-card{background:#fff;border:1px solid #e0d9cf;border-radius:4mm;padding:3mm}
 .amenity-photo-card img{width:100%;height:54mm;object-fit:contain!important;background:#fff;display:block}
@@ -123,13 +131,13 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .sunset-feature{display:grid;grid-template-columns:1.2fr .8fr;gap:0;background:#fff;border:1px solid #dfd8ce;border-radius:4mm;overflow:hidden;margin-top:5mm;min-height:69mm}
 .sunset-feature img{width:100%;height:69mm;object-fit:contain!important;background:#f6f1e8}
 .sunset-feature .body{padding:5mm}.sunset-feature h2{font-size:20pt;margin:0 0 2mm}.sunset-feature p{font-size:8.7pt;line-height:1.42;margin:0 0 3mm}
-.daytrip img.daytrip-map{height:68mm!important;width:100%;object-fit:contain!important;background:#f6fbfb;border-bottom:1px solid #e0d9cf}
+.daytrip img.daytrip-photo{height:42mm!important;width:100%;object-fit:cover!important;background:#f6fbfb;border-bottom:1px solid #e0d9cf}.daytrip-map{height:32mm!important;width:100%;object-fit:contain!important;background:#f6fbfb;border:1px solid #e0d9cf;border-radius:2.5mm;margin:2.5mm 0}.pinel-trip-map{height:42mm!important;object-fit:contain!important;background:#f6fbfb}.tiktok-logo-link{display:inline-flex!important;align-items:center;justify-content:center;width:9mm;height:9mm;margin:1.5mm 1.5mm 1.5mm 0!important;padding:0!important;border:0!important;background:transparent!important;vertical-align:middle}.tiktok-logo-link img{display:block;width:9mm;height:9mm;object-fit:contain}.waze-link-row{display:flex;justify-content:center;margin-top:2mm}.waze-logo-link{display:inline-flex;align-items:center;justify-content:center;width:12mm;height:12mm;padding:2mm;border-radius:50%;background:#fff;border:1px solid #d9e2e5;box-shadow:0 1mm 2.5mm rgba(28,49,58,.12)}.waze-logo-link svg{display:block;width:8mm;height:8mm;fill:#33ccff}.vip-badge{display:inline-flex;align-items:center;justify-content:center;margin-left:1.5mm;vertical-align:middle}.vip-badge img{display:block;width:8mm;height:8mm;object-fit:contain}.keylock-alert{grid-column:1/-1!important;background:#fff0df!important;border:2px solid #c87925!important;color:#8c310f!important;text-align:center!important;padding:4mm 5mm!important}.keylock-alert strong{display:block;font-size:17pt!important;line-height:1.15!important;letter-spacing:.3mm!important}
 .daytrip .body{padding:3.8mm 4.3mm}.daytrip h2{font-size:17pt}.daytrip p,.daytrip li{font-size:7.75pt;line-height:1.33}.daytrip ul{margin:1.5mm 0 2.8mm;padding-left:4.5mm}
 .daytrip .button{padding:2.1mm 3.2mm;font-size:7.2pt}
 .fare-box{background:#eef7f6;border-left:4px solid var(--aqua);padding:2.5mm 3mm;border-radius:0 2.5mm 2.5mm 0;margin:2.5mm 0;font-size:7.5pt;line-height:1.33}
 .key-rule{background:#fff4e6;border:1px solid #e4c18e;border-left:5px solid #c87925;border-radius:3mm;padding:3.5mm 4mm;font-size:8.8pt;line-height:1.42;margin-top:4mm}
 
-/* Version 2.3.0 - grocery travel times and cleaner headers */
+/* Version 2.4.0 - grocery travel times and cleaner headers */
 .header{align-items:flex-end}
 .store-grid{gap:6mm}
 .store-upgraded{position:relative;padding:5mm 5.5mm 5mm;border-radius:5mm;min-height:58mm;box-shadow:0 1.5mm 5mm rgba(22,53,74,.055)}
@@ -147,7 +155,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .compact-note p{font-size:8.3pt;line-height:1.4}
 
 
-/* Version 2.3.0 additions */
+/* Version 2.4.0 additions */
 .olivier-link{color:inherit;text-decoration:underline;text-decoration-color:var(--aqua);text-underline-offset:2px;font-weight:700}
 .tip-strip{background:linear-gradient(135deg,#eef8f7,#fff7e8);border:1px solid #d9d2c6;border-left:5px solid var(--aqua);border-radius:3mm;padding:3.5mm 4.5mm;font-size:8.1pt;line-height:1.38}
 .tip-strip strong{color:var(--navy)}
@@ -181,7 +189,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .shopping-pick{background:#fff;border-top:3px solid var(--sand);border-radius:2mm;padding:3.5mm;min-height:34mm}
 .shopping-pick h3{font-size:10.5pt;margin:0 0 1.5mm}.shopping-pick p{font-size:7.4pt;line-height:1.35;margin:0}
 
-/* v2.1.6 refinements */
+/* v2.2.1 refinements */
 #page-3{padding-bottom:20mm}
 #page-3 .header{margin-bottom:2mm}
 #page-3 .beach-first{margin:0 0 2.5mm!important;padding:2mm 3mm!important;font-size:6.8pt!important;line-height:1.22!important}
@@ -199,11 +207,41 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 .tiktok-link{display:inline-flex!important;align-items:center;gap:1.3mm}
 .tiktok-icon{width:4mm;height:4mm;flex:0 0 4mm;filter:drop-shadow(-.35mm 0 #25f4ee) drop-shadow(.35mm 0 #fe2c55)}
 
+
+/* v2.4.0 print-fit -------------------------------------------------------
+   .page is a fixed 297mm box with overflow:hidden, so any page whose content
+   runs long silently loses the bottom of itself. Pages 7, 9, 10 and 19 all ran
+   over in v2.2.13; these rules bring every page back inside its sheet. */
+#page-7 .callout{font-size:8pt;line-height:1.34;padding:3mm 4mm}
+#page-7 .amenity-photo-card img{height:46mm}
+#page-7 .coffee-section{margin-top:2mm!important}
+#page-7 .coffee-section .photo-frame img{max-height:34mm}
+#page-7 .coffee-section .photo-frame figcaption{font-size:7pt}
+/* The restaurant card rule sizes EVERY img inside it (width:50mm, min-height:53mm),
+   which was inflating the little VIP and TikTok badges to full photo size. */
+.restaurant .vip-badge img{width:auto!important;height:13pt!important;min-height:0!important}
+.restaurant .tiktok-logo-link img{width:auto!important;height:15pt!important;min-height:0!important}
+#page-9 .restaurant,#page-10 .restaurant{min-height:0}
+#page-9 .restaurant>img,#page-10 .restaurant>img{min-height:0;object-fit:cover!important}
+#page-10 .restaurant-grid{align-items:stretch}
+#page-19 .garbage-section{margin-top:3mm!important}
+#page-19 .garbage-section .photo-frame img{max-height:50mm}
+#page-19 .card[style]{margin-top:3mm!important}
+#page-19 .callout{margin-top:3mm!important}
+/* Friends & Family pointer on the closing page */
+#page-20 .farewell img{height:150mm}
+#page-20 .farewell-copy{padding:10mm 18mm 12mm}
+.friends-cta{margin:7mm auto 0;max-width:152mm;background:#fff;border:1px solid #e0d9cf;
+  border-left:5px solid var(--aqua);border-radius:3mm;padding:4.5mm 5.5mm;
+  font-size:9.2pt;line-height:1.45;color:#3c4a52;text-align:left}
+.friends-cta strong{color:var(--navy);font-family:Georgia,'Times New Roman',serif;font-size:11.5pt}
+.friends-cta p{margin:1.8mm 0 0}
+.friends-cta a{color:#0b6b7c;font-weight:700}
 </style>
 </head>
 <body>
 <section class="page cover" id="page-1">
-<img alt="Panoramic view of Pelican Bay and Simpson Bay" class="cover-photo" src="img/00-65f76dd5.jpg"/>
+<img alt="Panoramic view of Pelican Bay and Simpson Bay" class="cover-photo" src="img/65f76dd50e8d.jpg"/>
 <div class="cover-panel">
 <div class="cover-kicker">Welcome to</div>
 <h1>Pelican Bay</h1>
@@ -212,7 +250,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 <div class="cover-details">3 bedrooms · 2 bathrooms · sleeps 6<br/>Private terrace · fully equipped kitchen · air conditioning throughout<br/>Buccaneer Beach: approximately 4 minutes on foot · SXM Airport: approximately 15 minutes</div>
 <div class="cover-note">A concise guide to the apartment, the island, and our personal recommendations.</div>
 </div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 1 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 1 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-2">
 <div class="header"><div><div class="eyebrow">Start here</div><h1>Welcome &amp; Location</h1></div></div>
@@ -226,50 +264,71 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 <div class="cash-warning"><strong>IMPORTANT — BRING CASH:</strong> Bring US dollars, preferably in <strong>small bills</strong>. Many purchases, services, and tips are cash-only. Dollars are generally more useful than euros, and American Express is not accepted everywhere.</div>
 </div>
 <div class="qr-grid immigration-page2" style="grid-template-columns:1fr;margin-top:4mm">
-<div class="qr-card" style="grid-template-columns:34mm 1fr"><img alt="Immigration QR code" src="img/01-4b940dd3.png"/><div><h3>Before You Land — Digital Immigration</h3><p>Complete the official Sint Maarten entry form before departure when applicable. Scan the QR code or <a href="https://entry.sx" rel="noopener noreferrer" target="_blank">open entry.sx</a>.</p></div></div>
+<div class="qr-card" style="grid-template-columns:34mm 1fr"><img alt="Immigration QR code" src="img/4b940dd3d4a5.png"/><div><h3>Before You Land — Digital Immigration</h3><p>Complete the official Sint Maarten entry form before departure when applicable. Scan the QR code or <a href="https://entry.sx" rel="noopener noreferrer" target="_blank">open entry.sx</a>.</p></div></div>
 </div>
 <div class="emergency-card"><h2>Local Emergency Numbers</h2><div class="emergency-grid"><div><h3>Dutch Side — Sint Maarten</h3><p><strong>Emergency / Police:</strong> 911 · <strong>Ambulance:</strong> 912 · <strong>Fire:</strong> 919<br/><strong>Coast Guard:</strong> 913 · <strong>Hospital:</strong> 910 or +1 721 543 1111</p></div><div><h3>French Side — Saint-Martin</h3><p><strong>General emergency:</strong> 112 · <strong>Ambulance (SAMU):</strong> 15<br/><strong>Police / Gendarmerie:</strong> 17 · <strong>Fire:</strong> 18</p></div></div></div>
-<figure class="photo-frame page2-map-compact"><img alt="Original island map with red arrow pointing to the house" class="photo" src="img/02-6507ca50.jpg"/><figcaption><strong>The original island map.</strong> The red arrow clearly marks our location in Pelican Bay.</figcaption></figure>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 2 of 20</span><span>Version 2.3.0</span></div></div>
+<figure class="photo-frame page2-map-compact"><img alt="Original island map with red arrow pointing to the house" class="photo" src="img/6507ca509e5a.jpg"/><figcaption><strong>The original island map.</strong> The red arrow clearly marks our location in Pelican Bay.</figcaption></figure>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 2 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-3">
 <div class="header"><div><div class="eyebrow">Arrival</div><h1>Getting Here</h1></div></div>
 <div class="tip-strip beach-first" style="margin:0 0 4mm 0;padding:2.7mm 4mm;font-size:7.4pt;line-height:1.3"><strong>FIRST THINGS FIRST — GO TO THE BEACH:</strong> Leave the unpacking for later. Keep a swimsuit at the top of your suitcase, grab a beach towel, and head straight to Buccaneer Beach down the street. You deserve your first piña colada by the sea—the suitcases can wait.</div>
 <div class="grid2">
-<figure class="photo-frame" style="margin:0"><img alt="Route from Princess Juliana International Airport to Pelican Bay" class="photo route" src="img/03-f669cadc.jpg"/><figcaption><strong>From SXM Airport:</strong> The drive is normally around 15 minutes, depending on traffic and bridge openings.</figcaption></figure>
-<figure class="photo-frame" style="margin:0"><img alt="Main entrance of the Pelican Bay apartment" class="photo main-ent" src="img/04-a7c1e810.jpg"/><figcaption><strong>Main Entrance:</strong> Enter through the exterior gate and continue upstairs toward the terrace. <strong>Entrance A remains closed at all times. Entrance B is the primary entrance.</strong></figcaption></figure>
+<figure class="photo-frame" style="margin:0"><img alt="Route from Princess Juliana International Airport to Pelican Bay" class="photo route" src="img/f669cadcea0b.jpg"/><figcaption><strong>From SXM Airport:</strong> The drive is normally around 15 minutes, depending on traffic and bridge openings.</figcaption><div class="waze-link-row"><a aria-label="Open directions in Waze" class="waze-logo-link" href="https://waze.com/ul/hde5ns63s9" rel="noopener noreferrer" target="_blank" title="Open directions in Waze"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13.218 0C9.915 0 6.835 1.49 4.723 4.148c-1.515 1.913-2.31 4.272-2.31 6.706v1.739c0 .894-.62 1.738-1.862 1.813-.298.025-.547.224-.547.522-.05.82.82 2.31 2.012 3.502.82.844 1.788 1.515 2.832 2.036a3 3 0 0 0 2.955 3.528 2.966 2.966 0 0 0 2.931-2.385h2.509c.323 1.689 2.086 2.856 3.974 2.21 1.64-.546 2.36-2.409 1.763-3.924a12.84 12.84 0 0 0 1.838-1.465 10.73 10.73 0 0 0 3.18-7.65c0-2.882-1.118-5.589-3.155-7.625A10.899 10.899 0 0 0 13.218 0zm0 1.217c2.558 0 4.967.994 6.78 2.807a9.525 9.525 0 0 1 2.807 6.78A9.526 9.526 0 0 1 20 17.585a9.647 9.647 0 0 1-6.78 2.807h-2.46a3.008 3.008 0 0 0-2.93-2.41 3.03 3.03 0 0 0-2.534 1.367v.024a8.945 8.945 0 0 1-2.41-1.788c-.844-.844-1.316-1.614-1.515-2.11a2.858 2.858 0 0 0 1.441-.846 2.959 2.959 0 0 0 .795-2.036v-1.789c0-2.11.696-4.197 2.012-5.861 1.863-2.385 4.62-3.726 7.6-3.726zm-2.41 5.986a1.192 1.192 0 0 0-1.191 1.192 1.192 1.192 0 0 0 1.192 1.193A1.192 1.192 0 0 0 12 8.395a1.192 1.192 0 0 0-1.192-1.192zm7.204 0a1.192 1.192 0 0 0-1.192 1.192 1.192 1.192 0 0 0 1.192 1.193 1.192 1.192 0 0 0 1.192-1.193 1.192 1.192 0 0 0-1.192-1.192zm-7.377 4.769a.596.596 0 0 0-.546.845 4.813 4.813 0 0 0 4.346 2.757 4.77 4.77 0 0 0 4.347-2.757.596.596 0 0 0-.547-.845h-.025a.561.561 0 0 0-.521.348 3.59 3.59 0 0 1-3.254 2.061 3.591 3.591 0 0 1-3.254-2.061.64.64 0 0 0-.546-.348z"/></svg></a></div></figure>
+<figure class="photo-frame" style="margin:0"><img alt="Main entrance of the Pelican Bay apartment" class="photo main-ent" src="img/a7c1e810b8b1.jpg"/><figcaption><strong>Main Entrance:</strong> Enter through the exterior gate and continue upstairs toward the terrace. <strong>Entrance A remains closed at all times. Entrance B is the primary entrance.</strong></figcaption></figure>
 </div>
 <div class="arrival-notes">
 <div class="arrival-note peridot-note"><h3>Finding Peridot Street</h3>When you arrive on <strong>Billy Folly Road</strong>, look for <strong>The Greenhouse Restaurant</strong>. Peridot Street is directly opposite the restaurant. It is the very steep road going uphill—it may look a little intimidating, but it is the correct street to the house.</div>
 <div class="arrival-photo-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:4mm;align-items:start">
 <figure class="photo-frame" style="margin:0">
-<img alt="Billy Folly Road near Greenhouse Restaurant showing the approach to Peridot Street" class="photo" src="img/05-cdfba375.jpg"/>
-<figcaption><strong>Look for Greenhouse Restaurant.</strong> Once you see the sign on the right side of Greenhouse Restaurant, you are in front of Peridot Street.</figcaption>
+<img alt="Greenhouse Restaurant sign on Billy Folly Road" class="photo" src="img/57928a24a7a4.jpg"/>
+<figcaption><strong>Look for the large Greenhouse Restaurant sign.</strong> It confirms that you have reached the Peridot Street entrance.</figcaption>
 </figure>
 <figure class="photo-frame" style="margin:0">
-<img alt="Peridot Street uphill entrance" class="photo" src="img/06-e4acb320.jpg"/>
-<figcaption><strong>Peridot Street.</strong> This is the steep uphill street to take to the house.</figcaption>
+<img alt="Greenhouse Restaurant directional sign beside the steep entrance to Peridot Street" class="photo" src="img/224a5104d719.jpg"/>
+<figcaption><strong>Turn left right here.</strong> Take the steep uphill road shown on the left to reach the house. When you see the green door, you have arrived.</figcaption>
 </figure>
 </div>
 <div class="callout" style="margin-top:3mm"><strong>Peridot Street landmark:</strong> Once you see the sign on the right side of Greenhouse Restaurant, you are in front of Peridot Street.</div>
-<div class="arrival-note video-note"><h3>Video IN, Video OUT</h3>For safer check-in and checkout, record a short video of the house when you arrive and another just before you leave. This gives everyone a clear record of the property’s condition and helps avoid surprises if an issue is reported later.</div>
+<div class="arrival-note video-note"><h3>Video IN, Video OUT</h3>For safer check-in and checkout, record a short video of the house when you arrive and another just before you leave. This gives everyone a clear record of the property’s condition and helps avoid surprises if an issue is reported later. <strong>Please send both videos to Olivier via <a href="https://wa.me/33652703232" rel="noopener noreferrer" target="_blank">WhatsApp</a> as soon as you record them.</strong></div>
 </div>
-<figure class="photo-frame" style="margin:4mm 0 0"><img alt="Parking spaces at the property" class="photo parking" src="img/07-a9639f96.jpg"/><figcaption><strong>Parking:</strong> Designated parking is to the right of the entrance. Spot #1 provides the easiest access.</figcaption></figure>
+<figure class="photo-frame" style="margin:4mm 0 0"><img alt="Parking spaces at the property" class="photo parking" src="img/a9639f9646e8.jpg"/><figcaption><strong>Parking:</strong> Designated parking is to the right of the entrance. Spot #1 provides the easiest access.</figcaption></figure>
 
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 3 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 3 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-4">
-<div class="header"><div><div class="eyebrow">Arrival</div><h1>Finding the Keys</h1></div></div>
-<div class="access-block"><figure class="photo-frame" style="margin:0"><img alt="Original photo of the blue pot on the terrace" class="photo" src="img/08-2805e00a.jpg"/><figcaption>Original photograph—complete and uncropped.</figcaption></figure><div><h2>1. The Blue Pot</h2><p>On the main terrace, locate the large blue pot shown in the photograph. The magnetic black key holder is hidden in the soil inside this pot.</p></div></div>
-<div class="access-block reverse"><figure class="photo-frame" style="margin:0"><img alt="Correct location of the magnetic black key holder in the soil" class="photo" src="img/09-f8feb863.jpg"/><figcaption><strong>Correct key location.</strong> This is the exact magnetic black key holder to look for.</figcaption></figure><div><h2>2. The Black Key Holder</h2><p>Look in the soil for the rectangular magnetic box marked <strong>KEY-HOLDER</strong>. It contains the original arrival key. Use that key to enter, then return it to this outside box immediately. It must remain outside and is separate from the Gate key and Rooms Door key kept inside the house.</p></div></div>
-<div class="key-rule">The original arrival key always stays in the outside key box. Do not take it away or leave it in the kitchen.</div>
-<div class="emergency-access"><strong>LOCKED OUT? — EMERGENCY ACCESS:</strong> A secondary set of keys is available if you are locked out. Contact <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> immediately for guidance. <a href="https://wa.me/33652703232" rel="noopener noreferrer" target="_blank">WhatsApp Olivier</a>.</div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 4 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="header">
+<div>
+<div class="eyebrow">Arrival</div>
+<h1>Finding the Keys</h1>
+</div>
+</div>
+<div class="access-block">
+<figure class="photo-frame" style="margin:0">
+<img alt="Combination lockbox containing the arrival key" class="photo" src="img/16a4e16d57c0.jpg"/>
+<figcaption><strong>Combination lockbox.</strong> This lockbox contains the key for check-in.</figcaption>
+</figure>
+<div>
+<h2>Combination Lockbox</h2>
+<p>The key is kept in the combination lockbox shown in the photograph. The lockbox is located inside the house, just after you pass through the gate door. <strong>The gate door is always open.</strong></p>
+<p style="margin-top:3mm"><strong>Your combination code will be shared 24 hours before check-in.</strong></p>
+</div>
+</div>
+<div class="key-rule">Enter the code, remove the key, then close the lockbox securely and scramble the combination wheels. <strong>When leaving, make sure the gate door is left open.</strong></div>
+<div class="callout" style="margin-top:5mm"><strong>Keys on the living-room table:</strong> The four-key set contains (1) Main Entrance, (2) Balcony, (3) Rooms, and (4) Gate. One extra Main Entrance key is also provided. We normally leave the gate open.</div>
+<div class="emergency-access"><strong>NEED HELP?</strong> Contact <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> for guidance. <a href="https://wa.me/33652703232" rel="noopener noreferrer" target="_blank">WhatsApp Olivier</a>.</div>
+<div class="footer">
+<div class="line1">
+<span>PelicanBaySintMaarten.com</span>
+<span>Page 4 of 20</span>
+<span>Version 2.4.0</span>
+</div>
+</div>
 </section>
 <section class="page" id="page-5"><div class="header"><div><div class="eyebrow">Arrival</div><h1>Doors &amp; Keys</h1></div></div>
 <div class="key-photo-block">
 <figure class="photo-frame" style="margin:0">
-<img alt="Green Rooms Door" class="photo" src="img/10-03ebbd4e.jpg"/>
+<img alt="Green Rooms Door" class="photo" src="img/03ebbd4e9ea9.jpg"/>
 <figcaption><strong>Rooms Door.</strong> The green door is not the Main Door.</figcaption>
 </figure>
 <div>
@@ -279,90 +338,107 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 </div>
 <div class="key-photo-block reverse">
 <figure class="photo-frame" style="margin:0">
-<img alt="Gate key and Rooms Door key" class="photo keys-large" src="img/11-8a90becb.jpg"/>
-<figcaption><strong>The two arrival keys:</strong> Gate key and Rooms Door key.</figcaption>
+<img alt="The four-key house set" class="photo keys-large" src="img/d1f42a1ed421.jpg"/>
+<figcaption><strong>The 4 keys:</strong> Rooms, Gate, Main (1st), and Balcony (2nd).</figcaption>
 </figure>
 <div>
-<h2>The Two Keys</h2>
-<p>One key opens the exterior gate; the other opens the green Rooms Door.</p>
-<div class="callout" style="margin-top:4mm"><strong>Checkout:</strong> Leave both house keys in the kitchen: the Gate key and the Rooms Door key.</div>
+<h2>The 4 Keys</h2>
+<p>The full indoor set contains four keys: <strong>Rooms</strong>, <strong>Gate</strong>, <strong>Main (1st)</strong>, and <strong>Balcony (2nd)</strong>. The set and one extra Main Entrance key are available on the living-room table.</p>
+<div class="callout" style="margin-top:4mm"><strong>Checkout:</strong> Return the four-key set and the extra Main Entrance key to the living-room table.</div>
 </div>
 </div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 5 of 20</span><span>Version 2.3.0</span></div></div></section>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 5 of 20</span><span>Version 2.4.0</span></div></div></section>
 <section class="page" id="page-6">
-<div class="header"><div><div class="eyebrow">Connectivity</div><h1>Wi-Fi, Music &amp; Privacy</h1></div></div>
+<div class="header"><div><div class="eyebrow">Connectivity &amp; essentials</div><h1>Wi-Fi, Power, Music &amp; Privacy</h1></div></div>
 <div class="qr-grid">
-<div class="qr-card"><img alt="Wi-Fi QR code" src="img/12-f5545585.png"/><div><h3>House Wi-Fi</h3><p><strong>Network:</strong> Gif-sur-Yvette2021<br/><strong>Password:</strong> Welcome2Gif<br/>Scan the code to connect.</p></div></div>
+<div class="qr-card"><img alt="Wi-Fi QR code" src="img/f55455852516.png"/><div><h3>House Wi-Fi</h3><p><strong>Network:</strong> Gif-sur-Yvette2021<br/><strong>Password:</strong> Welcome2Gif<br/>Scan the code to connect.</p></div></div>
 </div>
+<div class="grid2" style="margin-top:5mm"><div class="callout"><h2 style="margin:0 0 1.5mm">Ultra-Fast Fiber Internet</h2><p style="margin:0"><strong>300 Mbps fiber connection</strong> for fast, reliable internet access—excellent for remote work, video calls, streaming, gaming, and multiple connected devices.</p></div><div class="callout"><h2 style="margin:0 0 1.5mm">110V Electricity</h2><p style="margin:0">We are on the <strong>Dutch side</strong>, so think U.S.: <strong>110V electricity, U.S.-style plugs, and U.S. dollars</strong>. If you are coming from a 220V country, bring a plug adapter. For 220V-only devices, you will also need a voltage converter.</p></div></div>
 <div class="grid2" style="margin-top:6mm">
 <div class="card"><h2>Music</h2><p>Three speakers are installed in the living room. They are connected to Wi-Fi and controlled through Google Home. Guests can cast music from compatible apps after joining the house Wi-Fi.</p><h3>TV</h3><p>Both TVs include Google Chromecast. Connect your phone to the house Wi-Fi and cast directly to either TV.</p><h3>Connected Home</h3><p>The house is equipped with Google Home and Apple TV. Both are connected and ready to use, so please feel free to enjoy them during your stay.</p></div>
-<div class="card"><img alt="Internal living-room security camera" class="photo" src="img/13-8c8bd0eb.jpg" style="height:71mm"/><h2 style="margin-top:3mm">Internal Camera</h2><p>The camera monitors the <strong>living room only</strong> while the property is vacant. You may unplug it during your stay. Please reconnect it before departure. Exterior cameras are non-functional and are not in use.</p></div>
+<div class="card"><img alt="Internal living-room security camera" class="photo" src="img/8c8bd0ebac8c.jpg" style="height:71mm"/><h2 style="margin-top:3mm">Internal Camera</h2><p>The camera monitors the <strong>living room only</strong> while the property is vacant. You may unplug it during your stay. Please reconnect it before departure. Exterior cameras are non-functional and are not in use.</p></div>
 </div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 6 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 6 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-7"><div class="header"><div><div class="eyebrow">Inside the home</div><h1>Comfort, Balcony &amp; Amenities</h1></div></div>
 <div class="ac-warning"><strong>IMPORTANT — AIR CONDITIONING:</strong> DO NOT leave the air conditioning running all day or while you are away. Use it only when you are present in the house, and switch it off whenever you leave. Bedrooms normally cool in 10–20 minutes; the living areas take around 30 minutes.</div>
-<div class="power-note"><strong>ELECTRICITY — 110V, JUST LIKE THE US:</strong> We are on the <strong>Dutch side</strong> of the island, so the whole apartment runs on <strong>110 volts / 60 Hz</strong> with <strong>US-style flat-pin sockets (Type A/B)</strong>. American and Canadian devices plug straight in. Guests arriving from Europe (including the French side) need a plug adapter, and any appliance not marked <em>100–240V</em> also needs a voltage converter — a 220V hair dryer or curling iron will simply not work here.</div>
+<div class="callout" style="margin-top:4mm"><h2 style="margin:0 0 1.5mm">Sand &amp; Cleanliness</h2><p style="margin:0">The house is only five minutes from the beach—an amazing location, but some beach sand inevitably finds its way inside despite thorough and repeated cleaning. <strong>Please keep the Main Entrance closed</strong> to minimize the amount of sand entering the house. To help keep the home clean, <strong>please leave shoes outside</strong>.</p><p style="margin:2mm 0 0"><strong>This is our family home.</strong> Our children and we live here part time, so please respect and care for it as if it were your own.</p></div>
 <div class="amenity-photo-grid">
 <article class="amenity-photo-card">
-<img alt="Balcony Entrance sliding doors" src="img/14-42c6763d.jpg"/>
-<h2>Balcony Entrance</h2>
-<p>The balcony entrance connects the main living area and terrace. Lock it whenever you leave the apartment.</p>
+<img alt="Main Entrance sliding doors" src="img/42c6763da734.jpg"/>
+<h2>Main Entrance</h2>
+<p>The Main Entrance connects the main living area and terrace. Lock it whenever you leave the apartment.</p>
 </article>
 <article class="amenity-photo-card">
-<img alt="Living room view toward the balcony" src="img/15-a216c10a.jpg"/>
-<h2>Living Room &amp; View</h2>
-<p>The living room opens directly toward the terrace and the sea view.</p>
+<img alt="Balcony Access from the living room" src="img/a216c10a69f7.jpg"/>
+<h2>Balcony Access</h2>
+<p>Balcony Access opens directly from the living room toward the terrace and sea view.</p>
 </article>
 <article class="amenity-photo-card">
-<img alt="Extra air mattress" src="img/16-765480e9.jpg"/>
+<img alt="Extra air mattress" src="img/765480e9853d.jpg"/>
 <h2>Extra Mattress</h2>
 <p>An extra air mattress is stored in the kitchen. It may be used for additional sleeping space or for stargazing on the terrace. Please return it clean and dry after use.</p>
 </article>
 </div>
 <div class="compact-features">
 <div class="compact-feature"><h3>Washer &amp; Dryer</h3><p>Detergent is provided. Clean the lint trap, avoid overloading, and run full loads when possible.</p></div>
-<div class="compact-feature"><h3>Coffee &amp; Water</h3><p>Espresso and drip-filter machines are available. Use refrigerator-filtered water.</p></div>
+<div class="compact-feature"><h3>Coffee &amp; Water</h3><p>Espresso and drip-filter machines are available. The refrigerator provides purified water. Drinking tap water on the island is not recommended.</p></div>
 <div class="compact-feature"><h3>First Aid</h3><p>The first-aid kit is located in the kitchen drawer.</p></div>
 <div class="compact-feature"><h3>Towels</h3><p>Two bath towels per person and one beach towel are placed on each bed.</p></div>
 <div class="compact-feature"><h3>Cleaning Fee</h3><p>A $100 fee applies. Leave it in cash on the kitchen counter at departure.</p></div>
 </div>
 <div class="coffee-section" style="display:grid;grid-template-columns:1.05fr .95fr;gap:5mm;margin-top:5mm;align-items:start">
-<div class="card"><h2>Coffee</h2><p><strong>We are coffee addicts, so you have three ways to make your coffee:</strong></p><ol style="padding-left:5mm;margin:2mm 0 0"><li><strong>Espresso machine</strong> — for a traditional espresso using ground coffee.</li><li><strong>Drip coffee maker</strong> — for a full pot of filter coffee.</li><li><strong>Nespresso machine</strong> — for a quick, convenient cup using compatible capsules.</li></ol></div><figure class="photo-frame" style="margin:4mm 0 0"><img alt="All three coffee machines together on the kitchen counter" class="photo" src="img/17-c2796220.jpg" style="width:100%;height:auto;object-fit:contain;display:block"/><figcaption>Espresso, drip coffee, and Nespresso machines are all available in the kitchen.</figcaption></figure>
+<div class="card"><h2>Coffee</h2><p><strong>We are coffee addicts, so the kitchen includes:</strong></p><ol style="padding-left:5mm;margin:2mm 0 0"><li><strong>Espresso machine</strong> — for a traditional espresso using ground coffee.</li><li><strong>Drip coffee maker</strong> — for a full pot of filter coffee.</li><li><strong>Milk frother</strong> — for making frothy milk for cappuccinos.</li></ol></div><figure class="photo-frame" style="margin:4mm 0 0"><img alt="Espresso machine, drip coffee maker, and milk frother on the kitchen counter" class="photo" src="img/c2796220a010.jpg" style="width:100%;height:auto;object-fit:contain;display:block"/><figcaption>An espresso machine, drip coffee maker, and milk frother are available in the kitchen.</figcaption></figure>
 
 </div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 7 of 20</span><span>Version 2.3.0</span></div></div></section>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 7 of 20</span><span>Version 2.4.0</span></div></div></section>
 <section class="page" id="page-8">
 <div class="header"><div><div class="eyebrow">Nearby essentials</div><h1>Grocery Shopping &amp; Safety</h1></div></div>
 <div class="store-grid"><div class="store store-upgraded walk"><div class="store-topline"><span class="travel-badge walk">WALK · 5 min walk</span></div><h3>Bare Essentials Supermarket</h3><p>2WJ5+P3V, Billy Folly Road, Koolbaai. Best for quick essentials close to the house.</p><a href="https://maps.google.com/?q=Bare+Essentials+Supermarket+Billy+Folly+Road+Sint+Maarten" rel="noopener noreferrer" target="_blank">Open in Google Maps</a></div><div class="store store-upgraded walk"><div class="store-topline"><span class="travel-badge walk">WALK · 7 min walk</span></div><h3>Market Garden Supermarket</h3><p>109 Welfare Road, Simpson Bay. A larger nearby supermarket with fresh food, prepared meals, and a broad selection.</p><a href="https://maps.google.com/?q=Market+Garden+Supermarket+109+Welfare+Road+Simpson+Bay" rel="noopener noreferrer" target="_blank">Open in Google Maps</a></div><div class="store store-upgraded drive"><div class="store-topline"><span class="travel-badge drive">DRIVE · 12-15 min drive</span></div><h3>Carrefour - Dutch Side</h3><p>Large modern supermarket with European imports, bakery products, and household goods. Travel time depends on traffic.</p><a href="https://maps.google.com/?q=Carrefour+Market+79+Bush+Road+Philipsburg+Sint+Maarten" rel="noopener noreferrer" target="_blank">Open in Google Maps</a></div><div class="store store-upgraded drive"><div class="store-topline"><span class="travel-badge drive">DRIVE · 25-30 min drive</span></div><h3>Super U - French Side</h3><p>Recommended for French produce, specialty cheeses, and wines. Allow extra time during busy periods.</p><a href="https://maps.google.com/?q=Super+U+Rue+Barbuda+Saint+Martin" rel="noopener noreferrer" target="_blank">Open in Google Maps</a></div></div>
 <div class="grid2" style="margin-top:7mm"><div class="card compact-note"><h2>Closest on Foot</h2><p>Bare Essentials and Market Garden are both walkable. Remember that the return to the house is uphill, especially with grocery bags.</p></div><div class="card compact-note"><h2>For a Full Grocery Run</h2><p>Use the rental car for Carrefour or Super U. Driving times are approximate and can increase with traffic or bridge openings.</p></div></div>
 <div class="callout" style="margin-top:8mm"><strong>Safety:</strong> Proceed directly to your destination at night and never leave valuables visible in the car.</div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 8 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 8 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-9">
 <div class="header"><div><div class="eyebrow">Eat &amp; drink</div><h1>Restaurants Near Home</h1></div></div>
 <div class="restaurant-grid">
-<article class="restaurant"><img alt="Buccaneer Beach Bar" src="img/18-b4ad9f4f.jpg"/><div class="body"><h3>Buccaneer Beach Grill</h3><p>An excellent first choice less than a 4-minute walk from the house. Relaxed atmosphere and food by the water.</p><a href="https://maps.google.com/?q=Buccaneer+Beach+Bar+Billy+Folly+Road+Simpson+Bay" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
-<article class="restaurant"><img alt="Hang Fung Chinese Restaurant sign" src="img/19-b0cbe794.jpg"/><div class="body"><h3>Hang Fung Chinese &amp; Sushi</h3><p>The original sign photograph includes the WhatsApp ordering number.</p><a href="https://maps.google.com/?q=Hang+Fung+Chinese+Restaurant+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
-<article class="restaurant"><img alt="Le Temps des Cerises" src="img/20-00c1bb99.jpg"/><div class="body"><h3>Le Temps des Cerises</h3><p><span>Ask for Cedric, the owner, on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> for a complimentary drink. Restaurant and beach-day option.</span></p><a href="https://maps.google.com/?q=Le+Temps+des+Cerises+Grand+Case+Saint+Martin" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">158 Boulevard de Grand-Case</div></div></article>
-<article class="restaurant"><img alt="Salt restaurant" src="img/21-20a459c6.jpg"/><div class="body"><h3>Salt</h3><p>Great brunch and a beautiful location for photographs.</p><a href="https://maps.google.com/?q=Salt+2+Beacon+Hill+Road+Simpson+Bay" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">2 Beacon Hill Road, Simpson Bay</div><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8tvrmJr/" rel="noopener noreferrer" style="margin-left:2mm" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch TikTok</a></div></article>
+<article class="restaurant"><img alt="Buccaneer Beach Bar" src="img/b4ad9f4f6b95.jpg"/>
+<div class="body"><h3>Buccaneer Beach Grill<span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span></h3><p>An excellent first choice less than a 4-minute walk from the house. Relaxed atmosphere and food by the water. The manager is <strong>Jasberg, from Amsterdam</strong>. Tell him you come on <strong>Olivier's behalf</strong> for <strong>VIP treatment</strong>.</p><a href="https://maps.google.com/?q=Buccaneer+Beach+Bar+Billy+Folly+Road+Simpson+Bay" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
+<article class="restaurant"><img alt="Hang Fung Chinese Restaurant sign" src="img/b0cbe794c2b4.jpg"/>
+<div class="body"><h3>Hang Fung Chinese &amp; Sushi</h3><p>The original sign photograph includes the WhatsApp ordering number.</p><a href="https://maps.google.com/?q=Hang+Fung+Chinese+Restaurant+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
+<article class="restaurant"><img alt="Le Temps des Cerises" src="img/00c1bb990bcf.jpg"/>
+<div class="body"><h3>Le Temps des Cerises<span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span></h3><p><span>Ask for Cedric, the owner, on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> for a complimentary drink. Restaurant and beach-day option.</span></p><a href="https://maps.google.com/?q=Le+Temps+des+Cerises+Grand+Case+Saint+Martin" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">158 Boulevard de Grand-Case</div></div></article>
+<article class="restaurant"><img alt="Salt restaurant" src="img/20a459c6e956.jpg"/>
+<div class="body"><h3>Salt</h3><p>Great brunch and a beautiful location for photographs.</p><a href="https://maps.google.com/?q=Salt+2+Beacon+Hill+Road+Simpson+Bay" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">2 Beacon Hill Road, Simpson Bay</div><a aria-label="Watch TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8tvrmJr/" rel="noopener noreferrer" target="_blank" title="Watch TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></article>
+<article class="restaurant"><img alt="Pete and Charlie restaurant" src="img/48bd07e897a8.jpg"/>
+<div class="body"><h3>Pete and Charlie<span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span></h3><p>An amazing nearby restaurant within walking distance or available for online ordering, with spectacular sushi. Owner Pierre is from Quebec and has lived on the island for 25 years. Tell him you came from <strong>“the French guy from New York”</strong> for <strong>VIP treatment</strong>. Restaurant cards are available at the house.</p><a href="https://www.google.com/maps/place/56+Welfare+Rd,+Cole+Bay,+Sint+Maarten/@18.0306764,-63.0894609,17z/data=!3m1!4b1!4m6!3m5!1s0x8c0e6ea2f2cad897:0xd61d9711df739037!8m2!3d18.0306713!4d-63.086886!16s%2Fg%2F11v_7z773_?entry=ttu&amp;g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">56 Welfare Road, Cole Bay</div><a class="button" href="https://wa.me/17215237383" rel="noopener noreferrer" style="margin-left:2mm" target="_blank">WhatsApp Order</a></div></article>
+<article class="restaurant"><img alt="La Sucrière French Bakery and Pastry storefront" src="img/25649e563ea9.jpg"/><div class="body"><h3>La Sucrière</h3><p>Craving a French bakery? Enjoy an early-morning coffee and fresh pastries at a table by the bay.</p><a href="https://www.google.com/maps/place/La+Sucriere/@18.0317847,-63.0880675,21z/data=!4m12!1m5!3m4!2zMTjCsDAxJzU1LjAiTiA2M8KwMDUnMTYuMCJX!8m2!3d18.0319444!4d-63.0877778!3m5!1s0x8c0e6ea2dc788263:0x92b5b6278a26a1c9!8m2!3d18.0319035!4d-63.0878781!16s%2Fg%2F12hqp0pt7?entry=ttu&amp;g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">130 Welfare Road, Simpson Bay, Sint Maarten</div></div></article>
 </div>
-<div class="callout" style="margin-top:7mm"><strong>Closest choice:</strong> Walk down the hill to Buccaneer for an easy first meal by the beach.</div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 9 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 9 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-10">
 <div class="header"><div><div class="eyebrow">Eat &amp; drink</div><h1>Beach Restaurants &amp; Lounges</h1></div></div>
 <div class="restaurant-grid">
-<article class="restaurant"><img alt="Sunset Bar and Grill" src="img/22-2eb16e03.jpg"/><div class="body"><h3>Sunset Bar &amp; Grill</h3><p>Front-row location for the famous low aircraft landings over Maho Beach.</p><a href="https://maps.google.com/?q=Sunset+Bar+and+Grill+Maho+Beach+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
-<article class="restaurant"><img alt="Kalos Beach Lounge" src="img/23-f5164572.jpg"/><div class="body"><h3>Kalos Beach Lounge</h3><p>Reserve for evening drinks. Greek and Mediterranean beach-lounge atmosphere.</p><a href="https://maps.google.com/?q=Kalos+Beach+Lounge+Baie+Nettle+Saint+Martin" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
-<article class="restaurant"><img alt="Mati Beach Saint-Martin" src="img/24-c868e1fa.jpg"/><div class="body"><h3>Mati Beach</h3><p>Amazing lunch location directly beside the lagoon.</p><a href="https://maps.google.com/?q=Mati+Beach+Sandy+Ground+Saint+Martin" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
-<article class="restaurant"><img alt="Kalatua Beach Club" src="img/25-d53817bf.jpg"/><div class="body"><h3>Kalatua Beach Club</h3><p>Our favorite for both lunch and a full beach day. It closes at 6:00 PM.</p><a href="https://maps.google.com/?q=Kalatua+Beach+Club+Mullet+Bay+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8nJjWcY/" rel="noopener noreferrer" style="margin-left:2mm" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch TikTok</a></div></article>
+<article class="restaurant"><img alt="Sunset Bar and Grill" src="img/2eb16e03866c.jpg"/>
+<div class="body"><h3>Sunset Bar &amp; Grill</h3><p>Front-row location for the famous low aircraft landings over Maho Beach.</p><a href="https://maps.google.com/?q=Sunset+Bar+and+Grill+Maho+Beach+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
+<article class="restaurant"><img alt="Kalos Beach Lounge" src="img/f5164572ae36.jpg"/>
+<div class="body"><h3>Kalos Beach Lounge</h3><p>Reserve for evening drinks. Greek and Mediterranean beach-lounge atmosphere.</p><a href="https://maps.google.com/?q=Kalos+Beach+Lounge+Baie+Nettle+Saint+Martin" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
+<article class="restaurant"><img alt="Mati Beach Saint-Martin" src="img/c868e1fa1dda.jpg"/>
+<div class="body"><h3>Mati Beach</h3><p>Amazing lunch location directly beside the lagoon.</p><a href="https://maps.google.com/?q=Mati+Beach+Sandy+Ground+Saint+Martin" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
+<article class="restaurant"><img alt="Kalatua Beach Club" src="img/d53817bfaa8d.jpg"/>
+<div class="body">
+<h3>Kalatua Beach Club<span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span></h3>
+<p>Our favorite for both lunch and a full beach day. It closes at 6:00 PM. Ask for the manager, <strong>Julie</strong>, on Olivier’s behalf for <strong>VIP treatment</strong>.</p><a href="https://maps.google.com/?q=Kalatua+Beach+Club+Mullet+Bay+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a><a aria-label="Watch TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8nJjWcY/" rel="noopener noreferrer" target="_blank" title="Watch TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></article>
+<article class="restaurant">
+<img alt="L’Oursin sea-view terrace at La Samanna" src="img/5f7bf7288e9c.jpg"/>
+<div class="body"><h3>L’Oursin at La Samanna</h3><p><strong>Luxury splurge:</strong> Spectacular food, but very expensive. <strong>Reservations are mandatory.</strong> Ask for the barman on Olivier’s behalf. <strong>Reopens in November 2026.</strong></p><a href="https://www.belmond.com/en/hotels/north-america/caribbean/la-samanna-st-martin/restaurants-and-bars" rel="noopener noreferrer" target="_blank">Details &amp; reservations</a> · <a href="https://www.google.com/maps/place/La+Samanna,+A+Belmond+Hotel,+St+Martin/@18.0563709,-63.1404732,17z/data=!4m15!1m5!3m4!2zMTjCsDAzJzI0LjAiTiA2M8KwMDgnMjMuMCJX!8m2!3d18.0566667!4d-63.1397222!3m8!1s0x8c0e6f480c5e0e8d:0xe10c311edb6d0c20!5m2!4m1!1i2!8m2!3d18.055715!4d-63.1388432!16s%2Fm%2F012hsmyd?entry=ttu&amp;g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer" target="_blank">Google Maps</a></div></article>
+<article class="restaurant"><img alt="BabaCool Beach Club pool and beachfront setting" src="img/78c6dce1ea18.webp"/>
+<div class="body"><h3>BabaCool Beach Club</h3><p>A boho-chic beachfront spot in Simpson Bay for lunch, cocktails, sunset views, and poolside relaxation, with cuisine by Michelin-starred Chef Jérôme Ferrer.</p><a href="https://babacoolbeachclub.com/" rel="noopener noreferrer" target="_blank">Website &amp; reservations</a> · <a href="https://maps.google.com/?q=BabaCool+Beach+Club+121+Simpson+Bay+Road+Sint+Maarten" rel="noopener noreferrer" target="_blank">Google Maps</a><div class="address">121 Simpson Bay Road, Simpson Bay</div><a aria-label="Watch TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8nJYuUU/" rel="noopener noreferrer" target="_blank" title="Watch TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></article>
 </div>
-<div class="callout" style="margin-top:7mm"><strong>Our favorites:</strong> Salt for brunch and photos; Kalos for evening drinks; Mati for lagoon-side lunch; Kalatua for a complete beach-and-lunch day.</div>
-<div class="tip-strip" style="margin-top:4mm">More local inspiration: <a href="https://www.tiktok.com/t/ZP8nJYuUU/" rel="noopener noreferrer" target="_blank" class="tiktok-link"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch the Babacool TikTok</a></div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 10 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 10 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-11">
-<div class="header"><div><div class="eyebrow">Local guide</div><h1>Beaches - French Side</h1></div><div style="text-align:right"><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8t7uBjw/" rel="noopener noreferrer" style="margin-top:2mm" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch the Beaches TikTok</a></div></div>
+<div class="header"><div><div class="eyebrow">Local guide</div><h1>Beaches - French Side</h1></div><div style="text-align:right"><a aria-label="Watch the Beaches TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8t7uBjw/" rel="noopener noreferrer" target="_blank" title="Watch the Beaches TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></div>
 <div class="beach-columns">
 <div class="beach"><h3><span class="beach-name">Baie Nettlé</span><span class="beach-number">1</span></h3><p>Small lagoon-side beaches with intimate views and nearby beach lounges.</p></div>
 <div class="beach"><h3><span class="beach-name">Marigot Bay</span><span class="beach-number">2</span></h3><p>A convenient dip after the market or Fort Louis, with the town as a lively backdrop.</p></div>
@@ -380,12 +456,12 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 <div class="beach"><h3><span class="beach-name">Le Galion</span><span class="beach-number">14</span></h3><p>Shallow and reef-protected - excellent for children and nervous swimmers.</p></div>
 <div class="beach"><h3><span class="beach-name">Wilderness Beach</span><span class="beach-number">15</span></h3><p>Remote Atlantic scenery and powerful water; best appreciated from the sand.</p></div>
 </div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 11 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 11 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-12">
-<div class="header"><div><div class="eyebrow">Local guide</div><h1>Beaches - Dutch Side</h1></div><div style="text-align:right"><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8t7uBjw/" rel="noopener noreferrer" style="margin-top:2mm" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch the Beaches TikTok</a></div></div>
+<div class="header"><div><div class="eyebrow">Local guide</div><h1>Beaches - Dutch Side</h1></div><div style="text-align:right"><a aria-label="Watch the Beaches TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8t7uBjw/" rel="noopener noreferrer" target="_blank" title="Watch the Beaches TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></div>
 <div class="beach-columns">
-<div class="beach favorite"><h3><span class="beach-name">Cupecoy</span><span aria-label="My Favorite" class="favorite-heart" title="My Favorite">♥</span><span class="beach-number">16</span><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8ndHH6c/" rel="noopener noreferrer" style="margin-top:2mm;display:inline-block" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch TikTok</a></h3><p>Golden cliffs, private coves, and memorable sunset views.</p></div>
+<div class="beach favorite"><h3><span class="beach-name">Cupecoy</span><span aria-label="My Favorite" class="favorite-heart" title="My Favorite">♥</span><span class="beach-number">16</span><a aria-label="Watch TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8ndHH6c/" rel="noopener noreferrer" target="_blank" title="Watch TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></h3><p>Golden cliffs, private coves, and memorable sunset views.</p></div>
 <div class="beach favorite"><h3><span class="beach-name">Mullet Bay</span><span aria-label="My Favorite" class="favorite-heart" title="My Favorite">♥</span><span class="beach-number">17</span></h3><p>Wide sand, turquoise water, and one of the best classic swimming beaches.</p></div>
 <div class="beach favorite"><h3><span class="beach-name">Maho</span><span aria-label="My Favorite" class="favorite-heart" title="My Favorite">♥</span><span class="beach-number">18</span></h3><p>The iconic aircraft-landing experience. Check arrivals before going.</p></div>
 <div class="beach"><h3><span class="beach-name">Beacon Hill</span><span class="beach-number">19</span></h3><p>A quieter narrow strip just beyond the runway.</p></div>
@@ -401,44 +477,52 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 <div class="beach"><h3><span class="beach-name">Dawn Beach</span><span class="beach-number">29</span></h3><p>Sunrise views and reef snorkeling on suitable days.</p></div>
 <div class="beach"><h3><span class="beach-name">Oyster Pond</span><span class="beach-number">30</span></h3><p>A small border-side beach with views of yachts navigating the inlet.</p></div>
 </div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 12 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 12 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-13">
 <div class="header"><div><div class="eyebrow">Things to do</div><h1>Island Activities I</h1></div></div>
 <div class="activity-grid">
-<article class="activity"><img alt="Private island tour promotional images" src="img/26-bfff60dc.jpg"/><div class="body"><h2>Private Island Tour</h2><span class="price-tag">Live price shown when booking</span><p>A private guided island tour with drinks and a local guide.</p><a class="button" href="https://www.getyourguide.com/marigot-l353/st-maarten-private-island-tour-with-drinks-guide-t1286320/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
-<article class="activity"><img alt="Sentry Hill and Flying Dutchman promotional images" src="img/27-dd5c6283.jpg"/><div class="body"><h2>Flying Dutchman Zipline</h2><span class="price-tag">From $129 per person</span><p>Ride the Sky Explorer, cross the mountain ridge, and experience the steep Flying Dutchman line.</p><a class="button" href="https://www.getyourguide.com/philipsburg-l2301/zipline-experiences-sentry-hill-zip-flying-dutchman-t448148/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
+<article class="activity"><img alt="Private island tour promotional images" src="img/bfff60dcf03c.jpg"/>
+<div class="body"><h2>Private Island Tour</h2><span class="price-tag">Live price shown when booking</span><p>A private guided island tour with drinks and a local guide.</p><a class="button" href="https://www.getyourguide.com/marigot-l353/st-maarten-private-island-tour-with-drinks-guide-t1286320/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
+<article class="activity"><img alt="Sentry Hill and Flying Dutchman promotional images" src="img/dd5c62835d18.jpg"/>
+<div class="body"><h2>Flying Dutchman Zipline</h2><span class="price-tag">From $129 per person</span><p>Ride the Sky Explorer, cross the mountain ridge, and experience the steep Flying Dutchman line. <a aria-label="Watch the zipline video on TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8n5SKoE/" rel="noopener noreferrer" target="_blank" title="Watch the zipline video on TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a>.</p><a class="button" href="https://www.getyourguide.com/philipsburg-l2301/zipline-experiences-sentry-hill-zip-flying-dutchman-t448148/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
 </div>
-<article class="sunset-feature"><img alt="Bubbly Sunset Cruise catamaran at sunset" src="img/28-7efb133f.jpg"/><div class="body"><h2>Bubbly Sunset Cruise</h2><span class="price-tag">From $65 per adult</span><p>A relaxing two-hour Simpson Bay cruise on a 65-foot catamaran, with Prosecco, warm snacks, an open bar, music, and a Caribbean sunset.</p><a class="button" href="https://www.getyourguide.com/simpson-bay-l1019/simpson-bay-bubbly-sunset-cruise-with-open-bar-snacks-t406977/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
-<div class="price-note">Activity prices checked July 30, 2026. Prices and availability can change; confirm the live amount before booking.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 13 of 20</span><span>Version 2.3.0</span></div></div>
+<article class="sunset-feature"><img alt="Bubbly Sunset Cruise catamaran at sunset" src="img/ce726490a908.jpg"/>
+<div class="body"><h2>Bubbly Sunset Cruise</h2><span class="price-tag">From $65 per adult</span><p>A relaxing two-hour Simpson Bay cruise on a 65-foot catamaran, with Prosecco, warm snacks, an open bar, music, and a Caribbean sunset.</p><a class="button" href="https://www.getyourguide.com/simpson-bay-l1019/simpson-bay-bubbly-sunset-cruise-with-open-bar-snacks-t406977/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
+<div class="price-note">Activity prices checked July 30, 2026. Prices and availability can change; confirm the live amount before booking.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 13 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-14">
 <div class="header"><div><div class="eyebrow">Things to do</div><h1>Island Activities II</h1></div></div>
 <div class="activity-grid">
-<article class="activity"><img alt="SeaTrek underwater walking tour" src="img/29-26832ae9.jpg"/><div class="body"><h2>SeaTrek</h2><span class="price-tag">From $107 per person</span><p>A guided underwater walking experience designed for both swimmers and non-swimmers.</p><a class="button" href="https://www.getyourguide.com/philipsburg-l2301/st-maarten-seatrek-t844336/?partner_id=1K0FHRF&amp;currency=USD&amp;travel_agent=1&amp;cmp=share_to_earn" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
-<article class="activity"><img alt="Topper's Rhum Distillery promotional images" src="img/30-27bd7890.jpg"/><div class="body"><h2>Topper's Rhum Distillery</h2><span class="price-tag">From $35 per person</span><p>See how rum is made and sample signature and specialty rums.</p><a class="button" href="https://www.getyourguide.com/st-martin-l32199/st-maarten-topper-s-rhum-distillery-tour-with-tastings-t808109/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
+<article class="activity"><img alt="SeaTrek underwater walking tour" src="img/26832ae91014.jpg"/>
+<div class="body"><h2>SeaTrek</h2><span class="price-tag">From $107 per person</span><p>A guided underwater walking experience designed for both swimmers and non-swimmers.</p><a class="button" href="https://www.getyourguide.com/philipsburg-l2301/st-maarten-seatrek-t844336/?partner_id=1K0FHRF&amp;currency=USD&amp;travel_agent=1&amp;cmp=share_to_earn" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a><a aria-label="Watch on TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8WyMb8t/" rel="noopener noreferrer" target="_blank" title="Watch on TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></article>
+<article class="activity"><img alt="Topper's Rhum Distillery promotional images" src="img/27bd7890602d.jpg"/>
+<div class="body"><h2>Topper's Rhum Distillery</h2><span class="price-tag">From $35 per person</span><p>See how rum is made and sample signature and specialty rums.</p><a class="button" href="https://www.getyourguide.com/st-martin-l32199/st-maarten-topper-s-rhum-distillery-tour-with-tastings-t808109/?partner_id=1K0FHRF&amp;utm_medium=local_partners" rel="noopener noreferrer" target="_blank">Book with GetYourGuide</a></div></article>
 </div>
-<div class="grid2" style="margin-top:6mm"><div class="card"><h2>Jet Ski</h2><p><span>Ask for Kimberly on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> and show his picture. The store is next to Buccaneer Beach Bar, after the parking area.</span></p></div><div class="card"><h2>Scuba Diving</h2><p><span>Ask for Thierry Girard on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a>.</span></p><a class="pill" href="tel:+590690352900">+590 690 35 2900</a></div></div>
-<div class="price-note">Published activity prices are starting prices and can vary by date.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 14 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="grid2" style="margin-top:6mm"><div class="card jet-ski-card"><img alt="Jet Ski rental location next to Buccaneer Beach Bar" src="img/28afb576dd0f.jpg"/><h2>Jet Ski<span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span></h2><p><span>Ask for Kimberly on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> and show his picture. The store is next to Buccaneer Beach Bar, after the parking area.</span></p></div><div class="card scuba-card"><img alt="Blue Odyssey Diving sign near the house" src="img/86ca65d8b949.jpg"/><h2>Scuba Diving<span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span></h2><p><span>Ask for Thierry Girard on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a>.</span></p><a class="pill" href="tel:+590690352900">+590 690 35 2900</a></div></div>
+<div class="price-note">Published activity prices are starting prices and can vary by date.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 14 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-15">
 <div class="header"><div><div class="eyebrow">Explore beyond SXM</div><h1>Day Trips: St. Barth &amp; Anguilla</h1></div></div>
 <div class="daytrip-grid">
-<article class="daytrip"><img alt="Map showing St Barth and Anguilla" class="daytrip-map" src="img/31-b6af2a2a.jpg"/><div class="body"><h2>St. Barth</h2><p>Take the ferry to Gustavia for harbor views, shopping, and lunch.</p><div class="fare-box"><strong>Ferry fare:</strong> online fares currently start at about €38 one way. Same-day return prices commonly run about €84–€110, depending on the date and fare class. Check the live Voyager price before booking.</div><ul><li><strong>Ferry:</strong> Port de Marigot schedules</li><li><strong>Restaurant:</strong> Cheval Blanc St-Barth, Baie des Flamands</li><li><strong>Comment:</strong> Expensive and stunning.</li></ul><a class="button" href="https://www.portdemarigot.com/en/gare" rel="noopener noreferrer" target="_blank">Ferry information</a><a class="button" href="https://maps.google.com/?q=Cheval+Blanc+St-Barth+Baie+des+Flamands" rel="noopener noreferrer" style="margin-left:2mm" target="_blank">Restaurant map</a></div></article>
-<article class="daytrip"><img alt="Map of Anguilla" class="daytrip-map" src="img/32-830dfa8f.jpg"/><div class="body"><h2>Anguilla</h2><p>A must for some of the most stunning beaches in the world.</p><div class="fare-box"><strong>Public ferry:</strong> $30 / €30 each way for adults; add the €7 Marigot passenger fee and the $11 Anguilla port tax for day visitors. Budget roughly $71 plus €7 per adult for a same-day round trip.</div><ul><li><strong>20 Knots:</strong> Zemi Beach House, Shoal Bay</li><li><strong>Gwen's Reggae Bar:</strong> Cheap and good, with free Wi-Fi</li><li><strong>Straw Hat:</strong> Meads Bay</li></ul><a class="button" href="https://www.portdemarigot.com/en/gare" rel="noopener noreferrer" target="_blank">Ferry information</a><a class="button" href="https://maps.google.com/?q=Shoal+Bay+Anguilla" rel="noopener noreferrer" style="margin-left:2mm" target="_blank">Shoal Bay map</a><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8tVgwGR/" rel="noopener noreferrer" style="margin-left:2mm" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch the Anguilla TikTok</a></div></article>
+<article class="daytrip"><img alt="Gustavia harbor in St. Barth" class="daytrip-photo" src="img/623ed92b9b48.jpg"/>
+<div class="body"><h2>St. Barth</h2><p>Take the ferry to Gustavia for harbor views, shopping, and lunch.</p><img alt="Map showing St Barth and Anguilla" class="daytrip-map" src="img/b6af2a2a92fa.jpg"/><div class="fare-box"><strong>Ferry fare:</strong> online fares currently start at about €38 one way. Same-day return prices commonly run about €84–€110, depending on the date and fare class. Check the live Voyager price before booking.</div><ul><li><strong>Ferry:</strong> Port de Marigot schedules</li><li><strong>Restaurant:</strong> Cheval Blanc St-Barth, Baie des Flamands</li><li><strong>Comment:</strong> Expensive and stunning.</li></ul><a class="button" href="https://www.portdemarigot.com/en/gare" rel="noopener noreferrer" target="_blank">Ferry information</a><a class="button" href="https://maps.google.com/?q=Cheval+Blanc+St-Barth+Baie+des+Flamands" rel="noopener noreferrer" style="margin-left:2mm" target="_blank">Restaurant map</a></div></article>
+<article class="daytrip"><img alt="Turquoise water and white-sand beach in Anguilla" class="daytrip-photo" src="img/a57d766e7b32.jpg"/>
+<div class="body"><h2>Anguilla</h2><p>A must for some of the most stunning beaches in the world.</p><img alt="Map of Anguilla" class="daytrip-map" src="img/830dfa8fd845.jpg"/><div class="fare-box"><strong>Public ferry:</strong> $30 / €30 each way for adults; add the €7 Marigot passenger fee and the $11 Anguilla port tax for day visitors. Budget roughly $71 plus €7 per adult for a same-day round trip.</div><ul><li><strong>20 Knots:</strong> Zemi Beach House, Shoal Bay</li><li><strong>Gwen's Reggae Bar:</strong> Cheap and good, with free Wi-Fi</li><li><strong>Straw Hat:</strong> Meads Bay</li></ul><a class="button" href="https://www.portdemarigot.com/en/gare" rel="noopener noreferrer" target="_blank">Ferry information</a><a class="button" href="https://maps.google.com/?q=Shoal+Bay+Anguilla" rel="noopener noreferrer" style="margin-left:2mm" target="_blank">Shoal Bay map</a><a aria-label="Watch the Anguilla TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8tVgwGR/" rel="noopener noreferrer" target="_blank" title="Watch the Anguilla TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a></div></article>
 </div>
-<div class="price-note">Ferry information checked July 30, 2026. Carry a passport and verify schedules, fares, taxes, and weather before departure.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 15 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="price-note">Ferry information checked July 30, 2026. Carry a passport and verify schedules, fares, taxes, and weather before departure.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 15 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-16">
-<div class="header"><div><div class="eyebrow">Explore beyond SXM</div><h1>Day Trip: Pinel Island</h1></div></div><a class="button tiktok-link" href="https://www.tiktok.com/t/ZP8t38cc7/" rel="noopener noreferrer" style="margin:2mm 0 4mm;display:inline-block" target="_blank"><svg class="tiktok-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3v10.2a4.7 4.7 0 1 1-4-4.4v2.8a2 2 0 1 0 1.5 1.9V3h2.5c.4 2.1 1.7 3.5 4.1 4v2.8c-1.6-.3-2.9-.9-4.1-1.9V3z"/></svg>Watch the Pinel Island Day TikTok</a>
-<figure class="photo-frame" style="margin:0"><img alt="Caribbean beach day" class="photo" src="img/25-d53817bf.jpg" style="height:112mm"/><figcaption>Pinel Island is a relaxed day trip for shallow water, lunch, and a full beach day.</figcaption></figure>
-<div class="grid2" style="margin-top:6mm"><div class="card"><h2>Plan the Trip</h2><ul><li><strong>Ferry:</strong> $12 USD or €10 round trip, cash only.</li><li><strong>Frequency:</strong> generally every 20–30 minutes.</li><li><strong>Return:</strong> treat 4:00 PM as the safe final boat and confirm at the dock.</li><li>No advance reservation is normally required; arrive early in busy periods.</li></ul><a class="button" href="https://maps.google.com/?q=Pinel+Island+Ferry+Cul+de+Sac+Saint+Martin" rel="noopener noreferrer" target="_blank">Ferry departure map</a></div><div class="card"><h2>Where to Spend the Day</h2><p><strong>Karibuni:</strong> Restaurant and beach day - reserve ahead.</p><p><strong>Yellow Beach:</strong> Restaurant and beach day - reserve ahead.</p><a href="https://maps.google.com/?q=Karibuni+Pinel+Island" rel="noopener noreferrer" target="_blank">Karibuni map</a><br/><a href="https://maps.google.com/?q=Yellow+Beach+Pinel+Island" rel="noopener noreferrer" target="_blank">Yellow Beach map</a></div></div>
-<div class="price-note">Pinel ferry price checked July 30, 2026. Local operating times can change with season and weather.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 16 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="header"><div><div class="eyebrow">Explore beyond SXM</div><h1>Day Trip: Pinel Island</h1></div></div><a aria-label="Watch the Pinel Island Day TikTok" class="tiktok-logo-link" href="https://www.tiktok.com/t/ZP8t38cc7/" rel="noopener noreferrer" target="_blank" title="Watch the Pinel Island Day TikTok"><img alt="TikTok" src="img/a2b4b0967552.png"/></a>
+<figure class="photo-frame" style="margin:0"><img alt="Caribbean beach day" class="photo" src="img/d53817bfaa8d.jpg" style="height:72mm"/><figcaption>Pinel Island is a relaxed day trip for shallow water, lunch, and a full beach day.</figcaption></figure>
+<figure class="photo-frame pinel-map-frame" style="margin:3mm 0 0"><img alt="Map showing the ferry route from Cul-de-Sac to Pinel Island" class="photo pinel-trip-map" src="img/a941bb46d186.jpg"/></figure>
+<div class="grid2" style="margin-top:6mm"><div class="card"><h2>Plan the Trip</h2><ul><li><strong>Ferry:</strong> $12 USD or €10 round trip, cash only.</li><li><strong>Frequency:</strong> generally every 20–30 minutes.</li><li><strong>Return:</strong> treat 4:00 PM as the safe final boat and confirm at the dock.</li><li>No advance reservation is normally required; arrive early in busy periods.</li></ul><a class="button" href="https://maps.google.com/?q=Pinel+Island+Ferry+Cul+de+Sac+Saint+Martin" rel="noopener noreferrer" target="_blank">Ferry departure map</a></div><div class="card"><h2>Where to Spend the Day</h2><p><strong>Karibuni:</strong><span class="vip-badge"><img alt="VIP" src="img/0ace42e8a81f.jpg"/></span> Restaurant and beach day — reserve ahead. Ask for the managers, <strong>Vincent or Emy</strong>, on behalf of <a class="olivier-link" href="https://www.cxooutlook.com/wp-content/uploads/2026/03/Olivier-Attia-1.jpeg" rel="noopener noreferrer" target="_blank">Olivier Attia</a> for <strong>VIP treatment</strong>.</p><p><strong>Yellow Beach:</strong> Restaurant and beach day - reserve ahead.</p><a href="https://maps.google.com/?q=Karibuni+Pinel+Island" rel="noopener noreferrer" target="_blank">Karibuni map</a><br/><a href="https://maps.google.com/?q=Yellow+Beach+Pinel+Island" rel="noopener noreferrer" target="_blank">Yellow Beach map</a></div></div>
+<div class="price-note">Pinel ferry price checked July 30, 2026. Local operating times can change with season and weather.</div><div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 16 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-17">
 <div class="header"><div><div class="eyebrow">Shopping &amp; local finds</div><h1>Shopping Recommendations</h1></div></div>
 <div class="shopping-grid">
-<div class="shopping-feature"><img alt="J.N. Jewelers storefront" src="img/33-38ae02cf.jpg" style="height:72mm"/><h2>Jewelry — J.N. Jewelers</h2><p>Ask for the owner on behalf of “the French Guy.” He may not remember the name, but he knows the face. This is the personal jewelry recommendation in the guide.</p><a href="https://maps.google.com/?q=J.N.+Jewelers+8+Cinnamon+Grove+Sint+Maarten" rel="noopener noreferrer" target="_blank">8 Cinnamon Grove — Open in Google Maps</a></div>
+<div class="shopping-feature"><img alt="J.N. Jewelers storefront" src="img/38ae02cf5972.jpg" style="height:72mm"/><h2>Jewelry — J.N. Jewelers</h2><p>Ask for the owner on behalf of “the French Guy.” He may not remember the name, but he knows the face. This is the personal jewelry recommendation in the guide.</p><a href="https://maps.google.com/?q=J.N.+Jewelers+8+Cinnamon+Grove+Sint+Maarten" rel="noopener noreferrer" target="_blank">8 Cinnamon Grove — Open in Google Maps</a></div>
 <div class="shopping-list">
 <div class="shopping-card" style="min-height:61mm"><h2>Marigot Market</h2><p>Our preferred place for island souvenirs, local crafts, spices, clothing, and small gifts. Combine it with a walk through Marigot and Fort Louis.</p><a href="https://maps.google.com/?q=Marigot+Market+Saint+Martin" rel="noopener noreferrer" target="_blank">Open in Google Maps</a></div>
 <div class="shopping-card" style="min-height:61mm"><h2>Philipsburg</h2><p>Front Street and the Great Bay boardwalk offer jewelry, duty-free shops, clothing, electronics, and souvenirs. Go early on cruise-ship days.</p><a href="https://maps.google.com/?q=Front+Street+Philipsburg+Sint+Maarten" rel="noopener noreferrer" target="_blank">Open Front Street</a></div>
@@ -453,7 +537,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 <div class="shopping-pick"><h3>Cash Tip</h3><p>Carry US dollars in small bills; some vendors do not accept cards.</p></div>
 </div>
 <div class="shopping-note"><strong>Shopping tip:</strong> American Express is not accepted everywhere. Save the apartment address and GPS coordinates on your phone before exploring.</div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 17 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 17 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-18">
 <div class="header"><div><div class="eyebrow">Please respect the home</div><h1>House Rules</h1></div></div>
@@ -471,7 +555,7 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 </div>
 <div class="big-quote">“Treat the apartment as a home, and enjoy the island as a guest.”</div>
 <div class="callout"><strong>Privacy:</strong> The living-room camera may be unplugged during your stay, but it must be reconnected before departure.</div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 18 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 18 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page" id="page-19">
 <div class="header"><div><div class="eyebrow">Before you leave</div><h1>Checkout - 11:00 AM</h1></div></div>
@@ -483,21 +567,23 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy)}
 <div class="check"><strong>5.</strong> Close and lock all doors and windows.</div>
 <div class="check"><strong>6.</strong> Reconnect the living-room camera.</div>
 <div class="check"><strong>7.</strong> Double-check for chargers, clothing, and toiletries.</div>
-<div class="check"><strong>8.</strong> Leave both house keys in the kitchen: the Gate key and the Rooms Door key.</div>
+<div class="check"><strong>8.</strong> Return the four-key set and the extra Main Entrance key to the living-room table.</div>
+<div class="check"><strong>9.</strong> Leave the $100 cleaning fee in cash on the kitchen counter.</div>
+<div class="check keylock-alert"><strong>LEAVE THE ORIGINAL KEY IN THE KEY LOCK.</strong></div>
 </div>
-<div class="checkout-notes"><div class="checkout-note checkout-video"><strong>VIDEO OUT:</strong> Before leaving, record a short final video of the house. Together with your arrival video, it provides a clear record of the property’s condition at check-in and checkout.</div><div class="checkout-note checkout-laundry"><strong>USED TOWELS &amp; LINENS:</strong> Put them in the bathtub. There is no need to wash anything—we will take care of it.</div></div>
+<div class="checkout-notes"><div class="checkout-note checkout-video"><strong>VIDEO OUT:</strong> Before leaving, record a short final video of the house and send it to Olivier via <a href="https://wa.me/33652703232" rel="noopener noreferrer" target="_blank">WhatsApp</a>. Send the arrival video at check-in the same way. Together, they document the property’s condition.</div><div class="checkout-note checkout-laundry"><strong>USED TOWELS &amp; LINENS:</strong> Put them in the bathtub. There is no need to wash anything—we will take care of it.</div></div>
 <div class="garbage-section" style="display:grid;grid-template-columns:1.1fr .9fr;gap:5mm;margin-top:5mm;align-items:start">
-<div class="card"><h2>Garbage — Before You Leave</h2><p>Please do not leave any garbage inside the house when you check out. The cleaning lady will arrive shortly after your departure, but because the air conditioning will be turned off, any garbage left indoors can quickly create an unpleasant smell for the next guests.</p><p><strong>Please tie all garbage bags securely and leave them outside in the designated spot shown in the photograph.</strong></p></div><figure class="photo-frame" style="margin:4mm 0 0"><img alt="Designated outdoor location for tied garbage bags" class="photo" src="img/34-09912cfc.jpg" style="width:100%;height:auto;object-fit:contain;display:block"/><figcaption>Leave securely tied garbage bags here, beside the glass-block wall.</figcaption></figure>
+<div class="card"><h2>Garbage — Before You Leave</h2><p>Please do not leave any garbage inside the house when you check out. The cleaning lady will arrive shortly after your departure, but because the air conditioning will be turned off, any garbage left indoors can quickly create an unpleasant smell for the next guests.</p><p><strong>Please tie all garbage bags securely and leave them outside in the designated spot shown in the photograph.</strong></p></div><figure class="photo-frame" style="margin:4mm 0 0"><img alt="Designated outdoor location for tied garbage bags" class="photo" src="img/09912cfc454b.jpg" style="width:100%;height:auto;object-fit:contain;display:block"/><figcaption>Leave securely tied garbage bags here, beside the glass-block wall.</figcaption></figure>
 
 </div>
 <div class="card" style="margin-top:5mm"><h2>Thank You</h2><p>Thank you for being wonderful guests. We hope you had a memorable stay at Pelican Bay. If anything was not quite right, please message us directly before leaving a public review so we have the opportunity to make it right.</p><div class="pills"><a class="pill" href="https://wa.me/33652703232" rel="noopener noreferrer" target="_blank">Message Olivier</a><a class="pill" href="https://wa.me/16464025402" rel="noopener noreferrer" target="_blank">U.S. WhatsApp</a></div></div>
-<div class="callout" style="margin-top:5mm"><strong>Final key reminder:</strong> Leave both house keys in the kitchen — the Gate key and the Rooms Door key. The original arrival key must remain outside in its magnetic key box.</div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 19 of 20</span><span>Version 2.3.0</span></div></div>
+<div class="callout" style="margin-top:5mm"><strong>Final key reminder:</strong> Return the four-key set and the extra Main Entrance key to the living-room table. Make sure the gate door is left open.</div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 19 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 <section class="page farewell" id="page-20">
-<img alt="Sunset from the Pelican Bay apartment" src="img/35-de401714.jpg"/>
-<div class="farewell-copy"><div class="eyebrow">Until next time</div><h1>Enjoy Pelican Bay</h1><p>The terrace. The sea. The sunset.</p></div>
-<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 20 of 20</span><span>Version 2.3.0</span></div></div>
+<img alt="Sunset from the Pelican Bay apartment" src="img/de401714e6cb.jpg"/>
+<div class="farewell-copy"><div class="eyebrow">Until next time</div><h1>Enjoy Pelican Bay</h1><p>The terrace. The sea. The sunset.</p><div class="friends-cta"><strong>Coming back? Family and friends?</strong><p>Check availability and request dates in our Friends &amp; Family area — <a href="https://pelicanbaysintmaarten.com/friends" rel="noopener noreferrer" target="_blank">pelicanbaysintmaarten.com/friends</a></p></div></div>
+<div class="footer"><div class="line1"><span>PelicanBaySintMaarten.com</span><span>Page 20 of 20</span><span>Version 2.4.0</span></div></div>
 </section>
 </body>
 </html>
