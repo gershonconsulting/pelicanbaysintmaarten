@@ -78,6 +78,11 @@
       <div id="bookings"><div class="spin">Loading…</div></div>
     </div>
     <div class="card">
+      <h2>Website inquiries</h2>
+      <p class="note">Messages sent from the contact form on the homepage. Each one is also emailed to you when email is configured.</p>
+      <div id="inquiries"><div class="spin">Loading…</div></div>
+    </div>
+    <div class="card">
       <h2>Friend accounts</h2>
       <p class="note">Approve to let someone sign in and request dates.</p>
       <div id="users"><div class="spin">Loading…</div></div>
@@ -111,7 +116,8 @@ $('signin').onclick = async () => {
 $('logout').onclick = async (e) => { e.preventDefault(); await api('/api/logout', { method: 'POST' }); location.reload(); };
 
 async function load() {
-  const [bk, us, cal] = await Promise.all([api('/api/admin/bookings'), api('/api/admin/users'), api('/api/admin/calendar')]);
+  const [bk, us, cal, inq] = await Promise.all([api('/api/admin/bookings'), api('/api/admin/users'), api('/api/admin/calendar'), api('/api/admin/inquiries')]);
+  renderInquiries((inq.data && inq.data.inquiries) || []);
   renderCalendar(cal.data || {});
   renderBookings(bk.data.bookings || []);
   renderUsers(us.data.users || []);
@@ -145,6 +151,15 @@ function renderBookings(list) {
     h += '</td></tr>';
   }
   $('bookings').innerHTML = h + '</table>';
+}
+function renderInquiries(list) {
+  if (!list.length) { $('inquiries').innerHTML = '<p class="note">No inquiries yet.</p>'; return; }
+  let h = '<table><tr><th>Received</th><th>Guest</th><th>Dates / guests</th><th>Message</th></tr>';
+  for (const q of list) {
+    const when = new Date(q.created_at).toLocaleString();
+    h += `<tr><td>${esc(when)}${q.emailed ? '' : '<div class="badge">not emailed</div>'}</td><td>${esc(q.name)}<div class="badge"><a href="mailto:${esc(q.email)}">${esc(q.email)}</a>${q.phone ? ' · ' + esc(q.phone) : ''}</div></td><td>${esc(q.dates || '—')}<div class="badge">${esc(q.guests || '')}${q.cat_friendly ? ' · cats OK' : ''}</div></td><td style="white-space:pre-wrap">${esc(q.message || '')}</td></tr>`;
+  }
+  $('inquiries').innerHTML = h + '</table>';
 }
 function renderUsers(list) {
   if (!list.length) { $('users').innerHTML = '<p class="note">No accounts yet.</p>'; return; }
