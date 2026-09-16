@@ -18,7 +18,7 @@
             --burgundy: #8A2540;
             --navy: #0F2E3D;
             --charcoal: #1a1a1a;
-            --muted: #6b6b6b;h
+            --muted: #6b6b6b;
             --gold: #C9A656;
         }
 
@@ -1109,10 +1109,6 @@
                     <div class="section-label">Get in touch</div>
                     <h2 class="section-title" style="font-size: clamp(1.8rem, 3.5vw, 2.6rem);">A short note<br>is enough.</h2>
                     <p>Tell us your dates and a little about your trip. We'll come back with availability, a personal welcome, and any details you need.</p>
-                    <div class="info-block">
-                        <div class="info-label">Email</div>
-                        <div class="info-value">info@pelicanbaystmaarten.com</div>
-                    </div>
                 </div>
                 <form id="contactForm" class="reveal">
                     <div class="form-row">
@@ -1129,7 +1125,9 @@
                         <label for="catFriendly" style="margin-bottom: 0; text-transform: none; letter-spacing: normal; font-size: 0.92rem; color: var(--charcoal); font-weight: 300;">I'm comfortable staying somewhere that's home to two friendly resident cats (Gadsby &amp; Noisette).</label>
                     </div>
                     <div class="field"><label for="message">Message</label><textarea id="message" rows="4"></textarea></div>
-                    <button type="submit" class="btn btn-primary">Send inquiry</button>
+                    <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label for="company">Company</label><input type="text" id="company" name="company" tabindex="-1" autocomplete="off"></div>
+                    <button type="submit" class="btn btn-primary" id="contactSubmit">Send inquiry</button>
+                    <p id="contactStatus" role="status" aria-live="polite" style="margin:0;font-size:0.95rem;font-weight:300;min-height:1.4em"></p>
                 </form>
             </div>
         </div>
@@ -1205,26 +1203,33 @@
         }, { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Contact form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Contact form — posts to /api/inquiry (email to the owner + stored record)
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const dates = document.getElementById('dates').value;
-            const guests = document.getElementById('guests').value;
-            const catFriendly = document.getElementById('catFriendly').checked ? 'Yes' : 'Not confirmed';
-            const message = document.getElementById('message').value;
-            const body =
-                `Name: ${name}%0D%0A` +
-                `Email: ${email}%0D%0A` +
-                `Phone: ${phone}%0D%0A` +
-                `Preferred dates: ${dates}%0D%0A` +
-                `Guests: ${guests}%0D%0A` +
-                `Cat-friendly: ${catFriendly}%0D%0A%0D%0A` +
-                `${message}`;
-            window.location.href =
-                `mailto:${'info'+String.fromCharCode(64)+'pelicanbaystmaarten.com'}?subject=Inquiry from ${encodeURIComponent(name)}&body=${body}`;
+            const form = this;
+            const btn = document.getElementById('contactSubmit');
+            const status = document.getElementById('contactStatus');
+            const v = (id) => document.getElementById(id).value;
+            const payload = {
+                name: v('name'), email: v('email'), phone: v('phone'), dates: v('dates'),
+                guests: v('guests'), message: v('message'), company: v('company'),
+                catFriendly: document.getElementById('catFriendly').checked
+            };
+            btn.disabled = true; btn.textContent = 'Sending…';
+            status.style.color = 'var(--muted)'; status.textContent = '';
+            try {
+                const r = await fetch('/api/inquiry', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) });
+                const data = await r.json().catch(() => ({}));
+                if (!r.ok) throw new Error(data.error || 'Sorry, your message could not be sent. Please try again shortly.');
+                form.reset();
+                status.style.color = 'var(--turquoise-deep)';
+                status.textContent = "Thank you — your inquiry is on its way. We'll be in touch soon.";
+            } catch (err) {
+                status.style.color = 'var(--terracotta)';
+                status.textContent = err.message;
+            } finally {
+                btn.disabled = false; btn.textContent = 'Send inquiry';
+            }
         });
     </script>
 </body>
