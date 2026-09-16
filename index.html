@@ -89,7 +89,9 @@
             transition: transform 0.3s ease;
         }
         .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
-        @media (max-width: 820px) { .nav-links { display: none; } }
+        .nav-links a, .nav-brand { white-space: nowrap; }
+        @media (max-width: 1320px) { .nav-links { gap: 1.3rem; letter-spacing: 0.12em; } }
+        @media (max-width: 1180px) { .nav-links { display: none; } }
 
         /* ============ HERO ============ */
         .hero {
@@ -355,6 +357,47 @@
             top: 0.45rem;
         }
 
+        /* ============ BEDROOMS ============ */
+        .bedrooms {
+            background: var(--cream);
+            border-top: 1px solid rgba(15,46,61,0.07);
+        }
+        .bed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+        }
+        @media (max-width: 960px) {
+            .bed-grid { grid-template-columns: 1fr; gap: 3.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+        }
+        .bed-photo {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            margin-bottom: 1.6rem;
+            box-shadow: 0 30px 60px -20px rgba(15,46,61,0.3);
+        }
+        .bed-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .bed-size {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--terracotta);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        .bed-title {
+            font-size: clamp(1.6rem, 2.4vw, 2rem);
+            line-height: 1.15;
+            color: var(--navy);
+            font-weight: 300;
+            margin-bottom: 0.9rem;
+        }
+        .bed-title em { font-style: italic; color: var(--turquoise-deep); }
+        .bed { display: flex; flex-direction: column; }
+        .bed p { flex: 1 0 auto; font-size: 0.98rem; color: var(--charcoal); font-weight: 300; }
+        .bed .room-features { margin-top: 1.2rem; padding-top: 1rem; }
+
         /* ============ DUAL PHOTO ============ */
         .pair {
             display: grid;
@@ -568,6 +611,11 @@
         .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--terracotta); }
         .field textarea { resize: vertical; min-height: 100px; }
         form button { justify-self: start; margin-top: 1rem; }
+        form button[disabled] { opacity: 0.6; cursor: wait; }
+        .form-status { font-size: 0.95rem; min-height: 1.4em; margin: 0; }
+        .form-status.ok { color: var(--turquoise-deep); }
+        .form-status.err { color: var(--terracotta); }
+        #contactForm { position: relative; }
 
         /* ============ FOOTER ============ */
         footer { background: var(--navy); color: rgba(250,246,239,0.7); padding: 4rem 2rem 2rem; text-align: center; }
@@ -585,7 +633,7 @@
         }
         .cats-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1.25fr 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -598,13 +646,10 @@
             width: 100%;
             display: block;
         }
+        .cats-photo img { height: auto; }
         .cats-photo-caption {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 2rem 1.5rem 1.2rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(15,46,61,0.85) 80%);
+            padding: 1rem 1.5rem;
+            background: var(--navy);
             color: var(--cream);
             display: flex;
             justify-content: space-between;
@@ -700,10 +745,11 @@
         <div class="nav-brand">Pelican Bay</div>
         <div class="nav-links">
             <a href="#welcome">The Apartment</a>
+            <a href="#bedrooms">The Bedrooms</a>
             <a href="#terrace">The Terrace</a>
             <a href="#view">The View</a>
             <a href="#amenities">The Amenities</a>
-            <a href="#cats">The Cats</a>
+            <a href="#cats">The Cat</a>
             <a href="#neighborhood">The Neighborhood</a>
             <a href="#contact">Book</a>
         </div>
@@ -717,7 +763,7 @@
         <div class="hero-content">
             <div class="hero-eyebrow">Pelican Bay · Sint Maarten</div>
             <h1>Where the Caribbean<br>writes its own <em>blue</em>.</h1>
-            <p class="hero-sub">A three-bedroom oceanfront apartment, wraparound bay views from floor-to-ceiling glass, a private terrace among tropical gardens — and Buccaneer Beach three minutes on foot. Home to two friendly cats.</p>
+            <p class="hero-sub">A three-bedroom oceanfront apartment, wraparound bay views from floor-to-ceiling glass, a private terrace among tropical gardens — and Buccaneer Beach three minutes on foot. Home to Gadsby, a friendly resident cat.</p>
             <div class="hero-meta">
                 <div><span>Bedrooms</span><span>Three</span></div>
                 <div><span>Bathrooms</span><span>Two</span></div>
@@ -750,21 +796,21 @@
     <section class="cats" id="cats">
         <div class="container cats-grid">
             <div class="cats-photo reveal">
-                <img src="img-02-53fa3a7558.jpeg" alt="Gadsby and Noisette, the two resident cats of the Pelican Bay apartment">
+                <img src="photos/gadsby.jpg" alt="Gadsby, the white and tabby resident cat, stretched out on a wooden deck" width="1200" height="624">
                 <div class="cats-photo-caption">
-                    <div class="cats-photo-names">Gadsby <em>&amp;</em> Noisette</div>
+                    <div class="cats-photo-names">Gadsby</div>
                     <div class="cats-photo-sub">In residence</div>
                 </div>
             </div>
             <div class="cats-text reveal">
                 <div class="section-label">Good to know</div>
-                <h2 class="section-title">Two <em>cats</em> live here.</h2>
-                <p class="lead">Gadsby and Noisette — independent, sweet, and very much part of the household.</p>
-                <p>They have their own routine: a little time inside, a little time exploring the terrace and garden, a quiet nap somewhere with a view. Guests are not asked to feed them or care for them — they take care of themselves and the housekeeper looks after the rest.</p>
-                <p>If you love cats, you'll feel right at home. If you've never met one and you're curious, they're patient teachers.</p>
+                <h2 class="section-title">A <em>cat</em> lives here.</h2>
+                <p class="lead">Gadsby — independent, sweet, and very much part of the household.</p>
+                <p>Gadsby keeps a simple routine: a little time inside, a little time exploring the terrace and garden, a quiet nap somewhere with a view. Guests are not asked to feed or look after Gadsby — the housekeeper takes care of that.</p>
+                <p>If you love cats, you'll feel right at home. If you've never met one and you're curious, Gadsby is a patient teacher.</p>
                 <div class="cats-note">
                     <strong>Cat-friendly guests only, please.</strong><br>
-                    Because Gadsby and Noisette come and go from the apartment, we ask that bookings come from households that are comfortable with cats. Allergic or cat-averse guests may want to look elsewhere — and we'll happily say so before you book.
+                    Because Gadsby comes and goes from the apartment, we ask that bookings come from households that are comfortable with cats. Allergic or cat-averse guests may want to look elsewhere — and we'll happily say so before you book.
                 </div>
             </div>
         </div>
@@ -868,6 +914,55 @@
         </div>
     </section>
 
+    <!-- BEDROOMS -->
+    <section class="bedrooms" id="bedrooms">
+        <div class="container">
+            <div class="reveal narrow" style="margin: 0 auto;">
+                <div class="section-label">Where you'll sleep</div>
+                <h2 class="section-title">Three bedrooms, <em>three bed sizes</em>.</h2>
+                <p class="lead">A king, a queen and a full — three private rooms, each with its own air conditioning. Sleeps up to six.</p>
+            </div>
+            <div class="bed-grid reveal">
+                <article class="bed">
+                    <div class="bed-photo"><img src="photos/king.jpg" alt="King bedroom with a pale carved-wood bed, crystal chandelier, bedside lamps and a louvred door open to the marble bathroom" width="1200" height="900" loading="lazy"></div>
+                    <div class="bed-size">King bed</div>
+                    <h3 class="bed-title">The <em>main</em> bedroom.</h3>
+                    <p>The largest room: a carved pale-wood king bed, a crystal chandelier and warm lamplight on either side. A louvred sliding door opens straight onto the marble bathroom and its deep tub.</p>
+                    <ul class="room-features">
+                        <li>King bed</li>
+                        <li>Opens to marble bathroom</li>
+                        <li>Crystal chandelier</li>
+                        <li>Independent A/C</li>
+                    </ul>
+                </article>
+                <article class="bed">
+                    <div class="bed-photo"><img src="photos/queen.jpg" alt="Queen bedroom with white shutters, woven rattan pendant, round brass mirrors and a small bookshelf" width="1200" height="900" loading="lazy"></div>
+                    <div class="bed-size">Queen bed</div>
+                    <h3 class="bed-title">The <em>bright</em> bedroom.</h3>
+                    <p>Morning light through white shutters, a woven rattan pendant, round brass mirrors and a little bookshelf by the bed. Calm, sunny and easy to settle into.</p>
+                    <ul class="room-features">
+                        <li>Queen bed</li>
+                        <li>Tall wardrobe</li>
+                        <li>Reading lamp &amp; books</li>
+                        <li>Independent A/C</li>
+                    </ul>
+                </article>
+                <article class="bed">
+                    <div class="bed-photo"><img src="photos/full.jpg" alt="Full bedroom with a wooden bed, knitted mustard throw, chest of drawers and shuttered window" width="1200" height="900" loading="lazy"></div>
+                    <div class="bed-size">Full bed</div>
+                    <h3 class="bed-title">The <em>quiet</em> bedroom.</h3>
+                    <p>A simple, peaceful room with a full-size bed, a chest of drawers and green garden light through the shutters. Right for a child, a solo traveller, or a couple who like it cozy.</p>
+                    <ul class="room-features">
+                        <li>Full bed</li>
+                        <li>Chest of drawers</li>
+                        <li>Standing fan</li>
+                        <li>Independent A/C</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- TERRACE -->
     <section class="terrace" id="terrace">
         <div class="container">
@@ -881,7 +976,7 @@
                 <p>Mornings are coffee and birdsong. Evenings are rum and the long horizon.</p>
             </div>
             <div class="terrace-grid reveal">
-                <div class="t-big"><img src="img-09-9e93ce0893.jpeg" alt="Wide terrace with turquoise Adirondack chairs and tropical garden" loading="lazy"></div>
+                <div class="t-big"><img src="photos/terrace.jpg" alt="Terrace at dusk with a stone-topped table, wrought-iron chairs, two sun loungers and potted olive trees" width="1440" height="1080" loading="lazy"></div>
                 <div><img src="img-10-8f5dff71fc.jpeg" alt="Terrace garden detail with bay view through palms" loading="lazy"></div>
                 <div><img src="img-11-7b7dbf220e.jpeg" alt="View from the terrace looking down toward Pelican Bay" loading="lazy"></div>
             </div>
@@ -972,7 +1067,7 @@
                 <div class="amenity"><div class="amenity-num">— 10</div><h4>3 min to beach</h4><p>Buccaneer Beach is a short walk down the hill.</p></div>
                 <div class="amenity"><div class="amenity-num">— 11</div><h4>Wraparound view</h4><p>Floor-to-ceiling glass on two walls, panoramic bay view.</p></div>
                 <div class="amenity"><div class="amenity-num">— 12</div><h4>Designer details</h4><p>Coffered ceilings, marble dining, brass lighting, classical columns.</p></div>
-                <div class="amenity"><div class="amenity-num">— 13</div><h4>Cats in residence</h4><p>Gadsby &amp; Noisette live here — cat-friendly guests only, please.</p></div>
+                <div class="amenity"><div class="amenity-num">— 13</div><h4>Cat in residence</h4><p>Gadsby lives here — cat-friendly guests only, please.</p></div>
                 <div class="amenity"><div class="amenity-num">— 14</div><h4>1 min to Chabad</h4><p>Chabad of Sint Maarten is essentially next door — a one-minute walk.</p></div>
             </div>
         </div>
@@ -1091,7 +1186,7 @@
         <div class="cta-inner reveal">
             <div class="section-label">Reserve your stay</div>
             <h2 class="section-title">Ready when <em>you are</em>.</h2>
-            <p>Book directly on Airbnb for instant confirmation, or send us a note — we usually reply the same day. Cat-lovers welcome; Gadsby and Noisette will be expecting you. Friends and family: use the Friends &amp; Family area to check dates and request a stay.</p>
+            <p>Book directly on Airbnb for instant confirmation, or send us a note — we usually reply the same day. Cat-lovers welcome; Gadsby will be expecting you. Friends and family: use the Friends &amp; Family area to check dates and request a stay.</p>
             <div class="cta-buttons">
                 <a href="https://www.airbnb.com/rooms/1695572888154608737?guests=1&adults=1&s=67&unique_share_id=5721633b-ce26-4cf0-8e59-76a87e050cf9" target="_blank" rel="noopener" class="btn btn-primary" id="airbnbBtn">Book on Airbnb</a>
                 <a href="https://www.homeexchange.com/homes/view/3202554" target="_blank" rel="noopener" class="btn btn-ghost">Exchange on HomeExchange</a>
@@ -1122,7 +1217,7 @@
                     <div class="field"><label for="guests">Number of guests</label><input type="text" id="guests" placeholder="e.g. 4 adults"></div>
                     <div class="field" style="flex-direction: row; align-items: flex-start; gap: 0.7rem;">
                         <input type="checkbox" id="catFriendly" style="margin-top: 0.3rem; width: auto; accent-color: var(--terracotta);">
-                        <label for="catFriendly" style="margin-bottom: 0; text-transform: none; letter-spacing: normal; font-size: 0.92rem; color: var(--charcoal); font-weight: 300;">I'm comfortable staying somewhere that's home to two friendly resident cats (Gadsby &amp; Noisette).</label>
+                        <label for="catFriendly" style="margin-bottom: 0; text-transform: none; letter-spacing: normal; font-size: 0.92rem; color: var(--charcoal); font-weight: 300;">I'm comfortable staying somewhere that's home to a friendly resident cat (Gadsby).</label>
                     </div>
                     <div class="field"><label for="message">Message</label><textarea id="message" rows="4"></textarea></div>
                     <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label for="company">Company</label><input type="text" id="company" name="company" tabindex="-1" autocomplete="off"></div>
@@ -1139,15 +1234,16 @@
         <div class="footer-tag">Sint Maarten · Dutch Caribbean</div>
         <div class="footer-links">
             <a href="#welcome">The Apartment</a>
+            <a href="#bedrooms">The Bedrooms</a>
             <a href="#terrace">The Terrace</a>
             <a href="#view">The View</a>
             <a href="#amenities">The Amenities</a>
-            <a href="#cats">The Cats</a>
+            <a href="#cats">The Cat</a>
             <a href="#neighborhood">The Neighborhood</a>
             <a href="#contact">Book</a>
         </div>
         <div class="footer-copy">
-            © <span id="year"></span> Pelican Bay Apartment. All rights reserved. · pelicanbaystmaarten.com
+            © <span id="year"></span> Pelican Bay Apartment. All rights reserved. · pelicanbaysintmaarten.com
         </div>
     </footer>
 
