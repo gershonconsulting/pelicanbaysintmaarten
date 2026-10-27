@@ -1,0 +1,106 @@
+================================================================
+HANDOFF.txt  -  pelicanbaysintmaarten
+Written by: Claude (nightly run) - token-limit handoff protocol
+Date: 2026-10-27
+Reason: repo had no HANDOFF.txt. Another AI can continue this work
+        from this file alone.
+================================================================
+
+0. WHO YOU ARE READING THIS
+----------------------------------------------------------------
+You are an AI assistant (ChatGPT, Gemini, Copilot, or another Claude
+session) taking over work on this repository for Olivier Attia,
+founder / CTO of Gershon Consulting LLC.
+
+Read the MASTER HANDOFF first:
+  github.com/gershonconsulting/memory -> HANDOFF.txt
+It carries the full operating rules, the technical defaults, and the
+index of all repos.
+
+CRITICAL OPERATING RULES - do not break these:
+  * Olivier does NOT use a terminal, CLI, git or PowerShell. NEVER
+    give him commands, scripts, .bat files or 'just run this' steps.
+  * He does NOT upload, download, move or save files. If a file has
+    to get somewhere, YOU find the route and execute it.
+  * End every actionable reply with:
+      GREEN CHECK = ready for him to test (+ the link)
+      RED CROSS   = something still to do (+ exactly 3 options he can
+                    actually action - never a CLI step)
+  * Executors: Ariel = code and repo work. Charles = Chrome extension
+    and web admin panels (Cloudflare, GitHub settings, DNS, publishing).
+
+1. WHAT THIS REPO IS
+----------------------------------------------------------------
+Product / site name : Pelican Bay, Sint Maarten (short-term rental villa)
+Live URL            : https://pelicanbaysintmaarten.com
+What it does        : Marketing site (index.html, photos, 7-day guide PDF)
+                      plus, via Cloudflare Pages Functions: an inquiry form
+                      (/api/inquiry, stores to D1 and emails), a members area
+                      (/friends: register, login, availability, bookings,
+                      admin for users/bookings/calendar/inquiries), a
+                      protected /guide, and an /address page with exact
+                      address, GPS and map links (added 2026-10-26).
+Who uses it         : Prospective guests and approved "friends" of the villa
+                      (personal property business, not Gershon clients).
+
+2. STACK AND DEPLOY ROUTE
+----------------------------------------------------------------
+Language / framework: Static HTML + Cloudflare Pages Functions (JS) + D1
+                      (binding DB; tables inquiries, users, bookings...)
+Hosting             : Cloudflare Pages project pelicanbaysintmaarten (not
+                      the Hostinger default)
+DNS / registrar     : Cloudflare
+Deploy method       : GitHub Actions .github/workflows/deploy.yml on push to
+                      main: wrangler pages deploy . --project-name
+                      pelicanbaysintmaarten (account id is in the file)
+Default branch      : main
+How to ship a change: merge to main; the workflow deploys.
+Secrets / env vars  : GitHub: CLOUDFLARE_API_TOKEN. Pages env/bindings: DB (D1),
+                      INQUIRY_TO, EMAIL_FROM and the mail API key used by
+                      functions/lib/email.js (check the Pages dashboard;
+                      there is no wrangler.toml in the repo).
+
+3. RECENTLY DONE  [DONE]
+----------------------------------------------------------------
+- 2026-10-26: /address page (photo, address, GPS, Waze/Google/Apple Maps,
+  arrival steps).
+
+4. PENDING  [TODO]
+----------------------------------------------------------------
+- Check the D1 binding and mail settings still exist on the Pages project.
+- The companion repo pelicanbay-calendar is empty.
+
+5. MISSING / NOT BUILT YET
+----------------------------------------------------------------
+- No wrangler.toml / schema file for the D1 tables beyond the inline CREATE
+  TABLE in functions/api/inquiry.js; no tests.
+
+6. KNOWN BUGS / NEEDS FIXING
+----------------------------------------------------------------
+- README says the site is static-only with no worker/functions, but the repo
+  has a functions/ folder (API, login, bookings). README is out of date.
+  The earlier outage came from a _worker.js (HTTP 500 on WebP requests):
+  never add a _worker.js.
+- The email helper defaults to the sandbox sender onboarding@resend.dev if
+  EMAIL_FROM is unset.
+
+7. NEXT ACTION - START HERE
+----------------------------------------------------------------
+The single most valuable next step is:
+  -> Test the inquiry form and the /friends login on the live site, then
+     correct the README to describe the functions.
+
+8. GOTCHAS / HARD-WON LESSONS
+----------------------------------------------------------------
+- No _worker.js, ever (see Known bugs).
+- The wrangler deploy publishes the whole folder (.) - do not add private
+  files to the repo root.
+
+9. CONTACT / ESCALATION
+----------------------------------------------------------------
+Olivier Attia - oattia@gmail.com
+Report mailbox - report@gershonconsulting.com
+
+================================================================
+END OF HANDOFF
+================================================================
